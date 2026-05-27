@@ -1,785 +1,892 @@
-<!DOCTYPE html>          
-  <html lang="de">           
-  <head>                                      
-    <meta charset="UTF-8">                    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunchaser — Rechtliches</title>                                                                                                                                                                  
-    <style>                                                                                                                                                                                                 
-      * { margin: 0; padding: 0; box-sizing: border-box; }                                                                                                                                                  
-                                                                                                                                                                                                            
-      body { font-family: -apple-system, sans-serif; background: #FBF0E4; color: #3A1F0A; }                                                                                                                 
-                                                                                                                                                                                                            
-      header {                                                                                                                                                                                              
-        background: linear-gradient(180deg, #F97316, #FDBA74);                                                                                                                                              
-        padding: 40px 24px;
-        text-align: center;                                                                                                                                                                                 
-      }                                                     
-      header h1 {
-        font-size: 32px; font-weight: 900; color: white;                                                                                                                                                    
-        letter-spacing: -1px; text-shadow: 0 2px 8px rgba(100,30,0,0.3);
-      }                                                                                                                                                                                                     
-      header p {                                            
-        color: rgba(255,255,255,0.85); font-size: 11px;
-        font-weight: 700; letter-spacing: 3px; margin-top: 6px;                                                                                                                                             
-      }                                       
-                                                                                                                                                                                                            
-      /* ── Tab bar ── */                                   
-      nav {                                                                                                                                                                                                 
-        display: flex;                        
-        justify-content: center;                                                                                                                                                                            
-        gap: 4px;                                           
-        padding: 16px 24px;                                                                                                                                                                                 
-        background: rgba(255,255,255,0.4);
-        border-bottom: 1px solid rgba(249,115,22,0.15);                                                                                                                                                     
-        position: sticky;                                   
-        top: 0;                           
-        z-index: 100;
-        backdrop-filter: blur(8px);                                                                                                                                                                         
-        -webkit-backdrop-filter: blur(8px);   
-      }                                                                                                                                                                                                     
-      .tab-btn {                                            
-        background: transparent;                                                                                                                                                                            
-        border: none;
-        color: rgba(249,115,22,0.6);                                                                                                                                                                        
-        font-weight: 700;                                   
-        font-size: 14px;                  
-        font-family: -apple-system, sans-serif;
-        padding: 8px 18px;                                                                                                                                                                                  
-        border-radius: 999px;                 
-        cursor: pointer;                                                                                                                                                                                    
-        transition: all 0.2s;                               
-        white-space: nowrap;                                                                                                                                                                                
-      }
-      .tab-btn:hover { color: #F97316; background: rgba(249,115,22,0.08); }                                                                                                                                 
-      .tab-btn.active {                                     
-        background: #F97316;              
-        color: white;                         
-        box-shadow: 0 4px 14px rgba(249,115,22,0.35);                                                                                                                                                       
-      }
-                                                                                                                                                                                                            
-      /* ── Content ── */                                   
-      .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }                                                                                                                                  
-                                                            
-      .tab-panel { display: none; }       
-      .tab-panel.active { display: block; }
-                                                                                                                                                                                                            
-      section {                           
-        background: rgba(255,255,255,0.5);                                                                                                                                                                  
-        border-radius: 16px;                                                                                                                                                                                
-        border: 1px solid rgba(255,255,255,0.6);
-        padding: 32px;                                                                                                                                                                                      
-        margin-bottom: 20px;                                
-      }
-                                                                                                                                                                                                            
-      h2 {
-        font-size: 22px; font-weight: 800;                                                                                                                                                                  
-        margin-bottom: 20px; padding-bottom: 12px;          
-        border-bottom: 2px solid rgba(249,115,22,0.2);
-      }                                   
-      h3 { font-size: 16px; font-weight: 700; margin: 20px 0 8px; color: #C2440A; }
-      p, li { font-size: 14px; line-height: 1.7; color: rgba(58,31,10,0.78); }                                                                                                                              
-      ul { padding-left: 20px; margin-top: 6px; }
-      li { margin-bottom: 5px; }                                                                                                                                                                            
-      strong { color: #3A1F0A; font-weight: 700; }                                                                                                                                                          
-      a { color: #F97316; text-decoration: none; font-weight: 600; }                                                                                                                                        
-      a:hover { text-decoration: underline; }                                                                                                                                                               
-                                                                                                                                                                                                            
-      /* ── Note box ── */                                                                                                                                                                                  
-      .note-box {                                           
-        background: rgba(249,115,22,0.07);                                                                                                                                                                  
-        border-left: 4px solid #F97316;                                                                                                                                                                     
-        padding: 14px 18px;
-        border-radius: 0 12px 12px 0;                                                                                                                                                                       
-        margin: 12px 0 16px;                                
-      }                                       
-      .note-box-title {                                                                                                                                                                                     
-        font-size: 11px; font-weight: 800;
-        color: #C2440A; letter-spacing: 1px;                                                                                                                                                                
-        text-transform: uppercase; margin-bottom: 5px;      
-      }                                                                                                                                                                                                     
-      .note-box-body { font-size: 14px; color: rgba(58,31,10,0.78); line-height: 1.6; }
-                                                                                                                                                                                                            
-      /* ── Table ── */                       
-      table {                                                                                                                                                                                               
-        width: 100%; border-collapse: collapse;                                                                                                                                                             
-        margin: 12px 0 16px; font-size: 13px;                                                                                                                                                               
-        background: white; border-radius: 12px;                                                                                                                                                             
-        overflow: hidden; border: 1px solid rgba(249,115,22,0.12);                                                                                                                                          
-      }                                                     
-      th {                                                                                                                                                                                                  
-        background: rgba(249,115,22,0.1);
-        color: #3A1F0A; font-weight: 800;                                                                                                                                                                   
-        text-align: left; padding: 11px 13px;               
-        font-size: 12px; letter-spacing: 0.3px;                                                                                                                                                             
-      }                                                     
-      td {
-        padding: 11px 13px;                                                                                                                                                                                 
-        border-top: 1px solid rgba(249,115,22,0.08);
-        color: rgba(58,31,10,0.78);                                                                                                                                                                         
-      }                                                     
-      td:first-child { font-weight: 700; color: #3A1F0A; }
-                                          
-      /* ── Lang switch ── */
-      .lang-wrap { text-align: center; margin-bottom: 28px; }                                                                                                                                               
-      .lang-switch {                          
-        display: inline-flex;                                                                                                                                                                               
-        background: rgba(255,255,255,0.7);                  
-        border-radius: 999px; padding: 4px;                                                                                                                                                                 
-        border: 1px solid rgba(249,115,22,0.2);
-      }                                                                                                                                                                                                     
-      .lang-switch button {                                 
-        border: none; background: transparent;                                                                                                                                                              
-        padding: 7px 20px; border-radius: 999px;                                                                                                                                                            
-        font-family: -apple-system, sans-serif;
-        font-size: 13px; font-weight: 700;                                                                                                                                                                  
-        color: rgba(249,115,22,0.6); cursor: pointer;       
-        transition: all 0.2s;                                                                                                                                                                               
-      }
-      .lang-switch button.active {                                                                                                                                                                          
-        background: #F97316; color: white;                  
-        box-shadow: 0 4px 14px rgba(249,115,22,0.35);                                                                                                                                                       
-      }                                                     
-                                                                                                                                                                                                            
-      .lang-section { display: none; }        
-      .lang-section.active { display: block; }                                                                                                                                                              
-                                                            
-      /* ── Contact card ── */                                                                                                                                                                              
-      .contact-card {
-        background: rgba(255,255,255,0.7);                                                                                                                                                                  
-        border-radius: 12px;                                
-        border: 1px solid rgba(249,115,22,0.15);
-        padding: 16px 20px;                                                                                                                                                                                 
-        margin: 10px 0 16px;              
-        font-size: 14px; line-height: 1.9;                                                                                                                                                                  
-        color: rgba(58,31,10,0.78);                                                                                                                                                                         
-      }                                   
-      .contact-card strong { display: block; margin-bottom: 2px; font-size: 15px; color: #3A1F0A; }                                                                                                         
-                                                                                                                                                                                                            
-      /* ── Footer ── */                  
-      footer {                                                                                                                                                                                              
-        text-align: center; padding: 28px;                                                                                                                                                                  
-        font-size: 12px; color: rgba(58,31,10,0.4);
-      }                                                                                                                                                                                                     
-                                                            
-      @media (max-width: 600px) {
-        .tab-btn { font-size: 12px; padding: 7px 12px; }                                                                                                                                                    
-        section { padding: 22px 18px; }       
-        h2 { font-size: 19px; }                                                                                                                                                                             
-      }                                                     
-    </style>                                                                                                                                                                                                
-  </head>
-  <body>                                                                                                                                                                                                    
-                                                            
-  <header>                                
-    <h1>sunchaser</h1>
-    <p>NEVER STOP CHASING THE SUN</p>                                                                                                                                                                       
-  </header>                                   
-                                                                                                                                                                                                            
-  <nav>                                                     
-    <button class="tab-btn active" onclick="showTab('impressum',this)">Impressum</button>                                                                                                                   
-    <button class="tab-btn"        onclick="showTab('datenschutz',this)">Datenschutz</button>
-    <button class="tab-btn"        onclick="showTab('nutzung',this)">Nutzungsbedingungen</button>                                                                                                           
-  </nav>                                                    
-                                                                                                                                                                                                            
-  <div class="container">
-                                                                                                                                                                                                            
-  <!-- ══════════════════════════════                       
-       IMPRESSUM                                                                                                                                                                                            
-  ══════════════════════════════════ -->                    
-  <div id="tab-impressum" class="tab-panel active">                                                                                                                                                         
-    <section>
-      <h2>Impressum</h2>                                                                                                                                                                                    
-      <p style="margin-bottom:16px;font-size:13px;color:rgba(58,31,10,0.45);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Stand: Mai 2026</p>
-                                              
-      <h3>Angaben gemäß § 5 TMG / § 18 Abs. 2 MStV</h3>
-      <div class="contact-card">                                                                                                                                                                            
-        <strong>Daniel Nakouzi</strong>                                                                                                                                                                     
-        Geschäftsbezeichnung: Sunchaser<br>                                                                                                                                                                 
-        Mörfelder Landstraße 88<br>                                                                                                                                                                         
-        60598 Frankfurt am Main<br>                                                                                                                                                                         
-        Deutschland                                                                                                                                                                                         
-      </div>                              
-                                                                                                                                                                                                            
-      <h3>Kontakt</h3>                                                                                                                                                                                      
-      <div class="contact-card">                                                                                                                                                                            
-        Telefon: +49 152 02181588<br>                                                                                                                                                                       
-        E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
-      </div>                                  
-                                          
-      <h3>Umsatzsteuer</h3>                                                                                                                                                                                 
-      <p>Eine Umsatzsteuer-Identifikationsnummer liegt derzeit nicht vor (Kleinunternehmerregelung nach § 19 UStG). Die Nummer wird nach Erteilung durch das Finanzamt ergänzt.</p>                         
-                                                                                                                                                                                                            
-      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>                                                                                                                                          
-      <div class="contact-card">                            
-        Daniel Nakouzi<br>                                                                                                                                                                                  
-        Mörfelder Landstraße 88<br>                                                                                                                                                                         
-        60598 Frankfurt am Main                                                                                                                                                                             
-      </div>                                                                                                                                                                                                
-                                                            
-      <h3>Gewerbeanmeldung</h3>               
-      <p>Das Gewerbe ist beim Gewerbeamt Frankfurt am Main angemeldet. Ein Handelsregistereintrag besteht nicht.</p>
-                                              
-      <h3>EU-Streitschlichtung</h3>                                                                                                                                                                         
-      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir
-   sind weder verpflichtet noch bereit, an einem Streitbeilegungsverfahren teilzunehmen.</p>                                                                                                                
-                                                                                                                                                                                                            
-      <h3>Haftung für Inhalte</h3>                                                                                                                                                                          
-      <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8–10 TMG sind wir nicht verpflichtet, übermittelte oder gespeicherte    
-  fremde Informationen zu überwachen.</p>                   
-                                                                                                                                                                                                            
-      <h3>Haftung für Links</h3>                            
-      <p>Unser Angebot enthält Links zu externen Websites Dritter. Für die Inhalte verlinkter Seiten ist stets der jeweilige Anbieter verantwortlich.</p>                                                   
-    </section>                                
-  </div>                                                                                                                                                                                                    
-                                                            
-                                                                                                                                                                                                            
-  <!-- ══════════════════════════════                       
-       DATENSCHUTZ                                                                                                                                                                                          
-  ══════════════════════════════════ -->                                                                                                                                                                    
-  <div id="tab-datenschutz" class="tab-panel">
-                                                                                                                                                                                                            
-    <div class="lang-wrap">                                 
-      <div class="lang-switch">
-        <button id="btn-de" class="active" onclick="setLang('de')">Deutsch</button>
-        <button id="btn-en"               onclick="setLang('en')">English</button>
-      </div>                                  
-    </div>                                                                                                                                                                                                  
-   
-    <!-- DEUTSCH -->                                                                                                                                                                                        
-    <div id="lang-de" class="lang-section active">          
-                                                                                                                                                                                                            
-      <section>                                             
-        <h2>Datenschutzerklärung</h2>
-        <p style="margin-bottom:16px;font-size:13px;color:rgba(58,31,10,0.45);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Stand: Mai 2026</p>                                           
-        <p>Die folgende Datenschutzerklärung informiert dich darüber, wie wir personenbezogene Daten verarbeiten, wenn du die mobile App „Sunchaser" nutzt. Wir beachten DSGVO, BDSG und TDDDG.</p>
-                                                                                                                                                                                                            
-        <div class="note-box">                              
-          <div class="note-box-title">Was du wissen solltest</div>                                                                                                                                          
-          <div class="note-box-body">Sunchaser ist werbe- und trackingfrei. Kein Analytics-SDK, keine Werbe-IDs, keine Datenweitergabe. Standortdaten werden nur kurzfristig auf deinem Gerät verarbeitet   
-  und maximal eine Stunde als grob gerundeter Cache-Schlüssel auf dem Server. Du kannst dein Konto und alle Daten jederzeit direkt in der App löschen.</div>                                                
-        </div>                                                                                                                                                                                              
-        <ul>                                                                                                                                                                                                
-          <li>Wir erheben nur Daten, die für die App-Funktion oder gesetzlich erforderlich sind.</li>                                                                                                       
-          <li>Backend und Datenspeicher in der EU (Stockholm) bei Supabase.</li>
-          <li>Push-Benachrichtigungen über Expo Push (USA, Standardvertragsklauseln).</li>                                                                                                                  
-          <li>Jederzeit: Auskunft, Berichtigung, Löschung, Datenübertragbarkeit, Widerspruch.</li>
-        </ul>                                                                                                                                                                                               
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>1. Verantwortlicher</h2>                                                                                                                                                                        
-        <div class="contact-card">                                                                                                                                                                          
-          <strong>Daniel Nakouzi</strong>                                                                                                                                                                   
-          Geschäftsbezeichnung: Sunchaser<br>
-          Mörfelder Landstraße 88 · 60598 Frankfurt am Main · Deutschland<br><br>                                                                                                                           
-          Telefon: +49 152 02181588<br>                     
-          E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
-        </div>                                                                                                                                                                                              
-        <p>Kein Datenschutzbeauftragter bestellt (nach § 38 BDSG nicht erforderlich). Anfragen direkt an obige E-Mail.</p>
-      </section>                                                                                                                                                                                            
-                                                            
-      <section>                                                                                                                                                                                             
-        <h2>2. Verwendete Begriffe</h2>                                                                                                                                                                     
-        <p>„Personenbezogene Daten" sind alle Informationen zu einer identifizierbaren Person (Art. 4 Nr. 1 DSGVO). „Verarbeitung" ist jeder Vorgang damit – Erheben, Speichern, Nutzen, Übermitteln,
-  Löschen (Art. 4 Nr. 2 DSGVO).</p>                                                                                                                                                                         
-      </section>                                            
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rechtliches · Sunchaser</title>
+<meta name="description" content="Impressum, Datenschutzerklärung und Nutzungsbedingungen der Sunchaser App.">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      <section>                                                                                                                                                                                             
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #FBF0E4;
+  color: #3A1F0A;
+  line-height: 1.65;
+  font-size: 16px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  background: linear-gradient(180deg, #F97316 0%, #FB923C 40%, #FDBA74 100%);
+  padding: 70px 24px 32px;
+  text-align: center;
+  color: white;
+}
+
+.brand {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.tagline {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  border: none;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+nav button:hover { background: rgba(255,255,255,0.35); }
+
+nav button.active {
+  background: white;
+  color: #F97316;
+  box-shadow: 0 4px 14px rgba(249,115,22,0.35);
+  border-color: white;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.lang-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  background: white;
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+  box-shadow: 0 2px 8px rgba(58,31,10,0.1);
+}
+
+.lang-switch button {
+  border: none;
+  background: transparent;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #B45309;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-switch button.active {
+  background: #F97316;
+  color: white;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.35);
+}
+
+.lang-section { display: none; }
+.lang-section.active { display: block; }
+
+.card {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.75);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 28px 28px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(58,31,10,0.06);
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3A1F0A;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.page-meta {
+  font-size: 13px;
+  color: #B45309;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3A1F0A;
+  margin: 28px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #EADFC9;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #C2410C;
+  margin: 20px 0 8px;
+}
+
+p { margin: 0 0 12px; color: #5C3317; }
+
+strong { color: #3A1F0A; font-weight: 600; }
+
+ul, ol { margin: 0 0 12px; padding-left: 22px; }
+
+li { margin-bottom: 6px; color: #5C3317; }
+li strong { color: #3A1F0A; }
+
+a { color: #C2410C; text-decoration: underline; text-decoration-color: rgba(194,65,12,0.35); text-underline-offset: 3px; }
+a:hover { color: #9A3412; }
+
+.note-box {
+  background: linear-gradient(135deg, #FFF7ED, #FEF3C7);
+  border-left: 4px solid #F97316;
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+  margin: 16px 0 20px;
+}
+
+.note-box-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #B45309;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.note-box-body { font-size: 14px; color: #5C3317; line-height: 1.6; }
+
+.contact-block {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid #EADFC9;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin: 12px 0 20px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(58,31,10,0.06);
+}
+
+th {
+  background: rgba(249,115,22,0.12);
+  color: #3A1F0A;
+  font-weight: 700;
+  text-align: left;
+  padding: 11px 14px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+td { padding: 11px 14px; border-top: 1px solid #EADFC9; vertical-align: top; color: #5C3317; }
+td:first-child { font-weight: 600; color: #3A1F0A; }
+
+.footer-meta {
+  font-size: 12px;
+  color: #B45309;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #EADFC9;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .card { padding: 20px 18px; }
+  h1 { font-size: 24px; }
+  h2 { font-size: 16px; }
+  body { font-size: 15px; }
+  table { font-size: 13px; }
+  th, td { padding: 9px 11px; }
+  nav button { padding: 9px 16px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Sunchaser</div>
+  <div class="tagline">chase the golden hour</div>
+  <nav>
+    <button id="tab-btn-impressum" class="active" onclick="showTab('impressum')">Impressum</button>
+    <button id="tab-btn-datenschutz" onclick="showTab('datenschutz')">Datenschutz</button>
+    <button id="tab-btn-nutzung" onclick="showTab('nutzung')">Nutzungsbedingungen</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ═══════════════ IMPRESSUM ═══════════════ -->
+  <div id="tab-impressum" class="tab-panel active">
+    <div class="card">
+      <h1>Impressum</h1>
+      <p class="page-meta">Angaben gemäß § 5 TMG</p>
+
+      <h2>Anbieter</h2>
+      <div class="contact-block">
+        <strong>Daniel Nakouzi</strong><br>
+        Mörfelder Landstraße 88<br>
+        60598 Frankfurt am Main<br>
+        Deutschland<br><br>
+        Telefon: <a href="tel:+4915202181588">+49 152 02181588</a><br>
+        E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
+      </div>
+
+      <h2>Vertretungsberechtigt</h2>
+      <p>Daniel Nakouzi (Einzelunternehmer)</p>
+
+      <h2>Verantwortlich für den Inhalt</h2>
+      <p>Gemäß § 18 Abs. 2 MStV:<br>Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main</p>
+
+      <h2>Umsatzsteuer-Identifikationsnummer</h2>
+      <p>Eine USt-IdNr. liegt derzeit nicht vor (Antrag gestellt). Sie wird nach Erteilung hier ergänzt.</p>
+
+      <h2>Plattform der EU-Kommission zur Online-Streitbeilegung</h2>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+      <h2>Haftungshinweis</h2>
+      <p>Die Inhalte unserer App wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich.</p>
+
+      <h2>Bildnachweise</h2>
+      <p>Alle in der App verwendeten Fotos wurden entweder von Nutzern hochgeladen oder stammen aus lizenzfreien Quellen. Nutzer sind selbst für die Rechtmäßigkeit hochgeladener Bilder verantwortlich.</p>
+
+      <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ DATENSCHUTZ ═══════════════ -->
+  <div id="tab-datenschutz" class="tab-panel">
+    <div class="lang-bar">
+      <div class="lang-switch" role="tablist">
+        <button id="lang-btn-de" class="active" onclick="setLang('de')">Deutsch</button>
+        <button id="lang-btn-en" onclick="setLang('en')">English</button>
+      </div>
+    </div>
+
+    <!-- ─── DEUTSCH ─── -->
+    <div id="lang-de" class="lang-section active">
+      <div class="card">
+        <h1>Datenschutzerklärung</h1>
+        <p class="page-meta">Stand: Mai 2026</p>
+
+        <p>Die folgende Datenschutzerklärung informiert dich darüber, wie wir personenbezogene Daten verarbeiten, wenn du die mobile App „Sunchaser" (im Folgenden „App") nutzt. Wir nehmen den Schutz deiner Daten ernst und beachten die geltenden Datenschutzgesetze, insbesondere die Datenschutz-Grundverordnung (DSGVO), das Bundesdatenschutzgesetz (BDSG) und das Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).</p>
+
+        <div class="note-box">
+          <div class="note-box-title">Was du wissen solltest</div>
+          <div class="note-box-body">Sunchaser ist werbe- und trackingfrei. Wir nutzen kein Analytics-SDK, kein Crash-Reporting, keine Werbe-IDs und verkaufen keine Daten. Standortdaten werden ausschließlich im Vordergrund verarbeitet und nicht dauerhaft gespeichert. Du kannst jederzeit dein Konto und alle zugehörigen Daten direkt in der App löschen.</div>
+        </div>
+        <ul>
+          <li>Wir erheben nur Daten, die für die App-Funktion oder gesetzlich erforderlich sind.</li>
+          <li>Backend und Datenspeicher liegen in der EU (Stockholm) bei Supabase.</li>
+          <li>Es werden aktuell keine Push-Benachrichtigungen versendet und kein Push-Token erhoben.</li>
+          <li>Du hast jederzeit die Rechte auf Auskunft, Berichtigung, Löschung, Datenübertragbarkeit und Widerspruch.</li>
+        </ul>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Verantwortlicher im Sinne der DSGVO ist:</p>
+        <div class="contact-block">
+          <strong>Daniel Nakouzi</strong><br>
+          Geschäftsbezeichnung: Sunchaser<br>
+          Mörfelder Landstraße 88<br>
+          60598 Frankfurt am Main<br>
+          Deutschland<br><br>
+          Telefon: +49 152 02181588<br>
+          E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
+        </div>
+        <p>Es ist kein Datenschutzbeauftragter bestellt, da dies nach § 38 BDSG für unser Einzelunternehmen nicht erforderlich ist. Anfragen zum Datenschutz richte bitte direkt an die oben genannte E-Mail-Adresse.</p>
+
+        <h2>2. Verwendete Begriffe</h2>
+        <p>Wir verwenden in dieser Erklärung die Begriffe der DSGVO. „Personenbezogene Daten" sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen (Art. 4 Nr. 1 DSGVO). „Verarbeitung" bedeutet jeder Vorgang im Zusammenhang mit personenbezogenen Daten (Art. 4 Nr. 2 DSGVO).</p>
+
         <h2>3. Datenverarbeitungen im Einzelnen</h2>
-                                                                                                                                                                                                            
-        <h3>3.1 Registrierung und Nutzerkonto</h3>                                                                                                                                                          
-        <ul>                              
-          <li><strong>Pflichtangaben:</strong> E-Mail-Adresse, Passwort, Anzeigename</li>                                                                                                                   
-          <li><strong>Freiwillig:</strong> Profilbild, Kurzbiografie</li>                                                                                                                                   
-          <li><strong>Pflichtbestätigung:</strong> Mindestalter 16 Jahre (Art. 8 DSGVO)</li>
-          <li><strong>E-Mail-Verifizierung:</strong> Bestätigungslink nach Registrierung</li>                                                                                                               
-        </ul>                                                                                                                                                                                               
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO; Verifizierung zusätzlich Art. 6 Abs. 1 lit. f DSGVO.<br>
-        <strong>Speicherdauer:</strong> Bis zur Kontolöschung. Passwörter nur als Hash (Supabase Auth).</p>                                                                                                 
-                                                                                                                                                                                                            
-        <h3>3.2 Standortdaten</h3>                                                                                                                                                                          
-        <p>Mit Einwilligung: Spots in der Nähe, Entfernungssortierung, personalisierte Sonnenzeiten und Sonnenqualität. Nur im Vordergrund, nie im Hintergrund. Server: Koordinaten auf ~1 km gerundet, max.
-   1 Stunde als Wetter-Cache-Schlüssel.</p>                                                                                                                                                                 
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TDDDG. Widerruf jederzeit in Geräteeinstellungen.</p>                                                          
-                                                                                                                                                                                                            
-        <h3>3.3 Foto-Uploads</h3>                                                                                                                                                                           
-        <ul>                              
-          <li>Fotos sind öffentlich sichtbar und dem Spot zugeordnet.</li>                                                                                                                                  
-          <li>EXIF-Metadaten (GPS, Gerät, Zeit) werden vor dem Upload auf deinem Gerät entfernt (expo-image-manipulator).</li>                                                                              
-          <li>Gespeichert wird nur die Anzahl der Likes, nicht wer geliked hat.</li>                                                                                                                        
-          <li>Du bist verantwortlich, dass keine erkennbaren Dritten ohne Einwilligung abgebildet sind.</li>                                                                                                
-        </ul>                                                                                                                                                                                               
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. <strong>Speicherdauer:</strong> Bis zur Löschung des Fotos oder Kontos.</p>                                                        
-                                                                                                                                                                                                            
-        <h3>3.4 Bewertungen, Kommentare und Sun-Score</h3>                                                                                                                                                  
-        <ul>                                                                                                                                                                                                
-          <li><strong>Daten:</strong> Daumen hoch/runter, Kommentar, Vibe-Tags, Datum/Uhrzeit, optional Foto.</li>                                                                                          
-          <li><strong>Für andere sichtbar:</strong> Anzeigename, Profilbild, Badge-Level, Anzahl besuchter Spots.</li>                                                                                      
-        </ul>                                                                                                                                                                                               
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b und lit. f DSGVO.<br>                                                                                                                     
-        <strong>Speicherdauer:</strong> Bis zur Kontolöschung; danach anonymisiert erhalten (Art. 17 Abs. 3 lit. e DSGVO analog).</p>                                                                       
-                                                                                                                                                                                                            
-        <h3>3.5 Badges und Gamification</h3>                                                                                                                                                                
-        <p>Gespeichert: besuchte Spots, welche Spots, Streak-Zähler für „Rookie", „Explorer", „Golden Hour", „Sun Legend". Keine automatisierte Entscheidung mit rechtlicher Wirkung (Art. 22 DSGVO).</p>   
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. <strong>Speicherdauer:</strong> Bis zur Kontolöschung.</p>                                                                         
-                                                                                                                                                                                                            
-        <h3>3.6 Freunde-Funktion</h3>                                                                                                                                                                       
-        <p>Suche per Anzeigename, Freundschaftsanfragen. Nach Bestätigung gegenseitig sichtbar: besuchte Spots, Badge-Fortschritt, Aktivitätsfeed.</p>                                                      
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. <strong>Speicherdauer:</strong> Bis zur Beendigung der Freundschaft oder Kontolöschung.</p>                                        
-                                                                                                                                                                                                            
-        <h3>3.7 Push-Benachrichtigungen</h3>                                                                                                                                                                
-        <p>Mit Einwilligung: Sunset-/Sunrise-Reminder, Badge-Unlocks, System-Mitteilungen. Keine Werbung. Anonymer Push-Token des Geräts.</p>                                                               
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TDDDG. Widerruf in Geräteeinstellungen oder in der App.</p>                                                    
-                                                                                                                                                                                                            
-        <h3>3.8 Geräteberechtigungen im Überblick</h3>                                                                                                                                                      
-        <table>                                                                                                                                                                                             
-          <thead><tr><th>Berechtigung</th><th>Zweck</th><th>Rechtsgrundlage</th></tr></thead>                                                                                                               
-          <tbody>                                                                                                                                                                                           
-            <tr><td>Standort (nur Vordergrund)</td><td>Spots in der Nähe, Entfernung, Sonnenqualität</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a)</td></tr>                                      
-            <tr><td>Kamera</td><td>Foto direkt in der App aufnehmen</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a)</td></tr>                                                                       
-            <tr><td>Foto-Galerie</td><td>Bestehendes Foto hochladen</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a)</td></tr>
-            <tr><td>Push-Benachrichtigungen</td><td>Reminder und Badge-Unlocks</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a)</td></tr>                                                            
-          </tbody>                                                                                                                                                                                          
-        </table>                                                                                                                                                                                            
-        <p>Wir greifen <strong>NICHT</strong> zu auf: Adressbuch, Mikrofon, Kalender, biometrische Daten, Werbe-ID (IDFA/AAID) oder andere Tracking-Identifier.</p>                                         
-                                                                                                                                                                                                            
-        <h3>3.9 Technische Daten</h3>                                                                                                                                                                       
-        <p>IP-Adresse, Gerätetyp, OS-Version, App-Version, Anfragezeitpunkt, ggf. Fehlermeldungen. Zweck: Betrieb, Missbrauchsabwehr, Fehlersuche.</p>                                                      
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO. <strong>Speicherdauer:</strong> Max. 7 Tage.</p>                                                                                   
-                                                            
-        <h3>3.10 E-Mail-Kontakt</h3>                                                                                                                                                                        
-        <p>Bei Kontakt über <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>: E-Mail-Adresse und Nachrichteninhalt.</p>                                                                     
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b oder lit. f DSGVO. <strong>Speicherdauer:</strong> Bis zu 3 Jahre nach Abschluss.</p>                                                     
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>4. Empfänger und Auftragsverarbeiter</h2>                                                                                                                                                       
-        <p style="margin-bottom:16px;">Mit allen Dienstleistern bestehen Auftragsverarbeitungsverträge nach Art. 28 DSGVO.</p>                                                                              
-                                                                                                                                                                                                            
-        <h3>4.1 Supabase (Backend, Datenbank, Authentifizierung, Speicherung)</h3>
-        <p>Supabase, Inc., Singapore. Datenspeicherung im EU-Rechenzentrum Stockholm (Schweden). Verschlüsselung at rest und in transit (TLS). Row Level Security auf allen Tabellen aktiv. DPA mit         
-  Standardvertragsklauseln (Art. 46 DSGVO).</p>                                                                                                                                                             
-                                                                                                                                                                                                            
-        <h3>4.2 Expo Push (Push-Benachrichtigungen)</h3>                                                                                                                                                    
-        <p>650 Industries Inc. d/b/a Expo, San Francisco, CA, USA. Anonymer Push-Token und Push-Inhalte. Übermittlung auf Basis von SCC (Art. 46 Abs. 2 lit. c DSGVO) und EU-U.S. Data Privacy              
-  Framework.</p>                                            
-                                                                                                                                                                                                            
-        <h3>4.3 Brevo (Transaktionale E-Mails)</h3>         
-        <p>Sendinblue SAS, Paris, Frankreich (Marke: Brevo). EU-Server. Transaktionale E-Mails (Bestätigung, Passwort-Reset, Sicherheitshinweise). DPA vorhanden.</p>                                       
-                                                            
-        <h3>4.4 App-Store-Betreiber (Apple, Google)</h3>                                                                                                                                                    
-        <p>Apple und Google verarbeiten Download-Daten eigenverantwortlich: Apple Inc., Cupertino, CA, USA · Google Ireland Limited, Dublin, Irland.</p>
-                                                                                                                                                                                                            
-        <h3>4.5 Karten und Navigation</h3>                                                                                                                                                                  
-        <p>Aktuell: OpenStreetMap via MapLibre (OpenStreetMap Foundation, UK – EU-Angemessenheitsbeschluss). Künftig: Apple Maps. „In Google Maps öffnen" leitet zur Google-Maps-App weiter (Google         
-  verarbeitet eigenverantwortlich).</p>                                                                                                                                                                     
-                                                            
-        <h3>4.6 Open-Meteo (Wetterdaten)</h3>                                                                                                                                                               
-        <p>Open-Meteo GmbH, Zürich, Schweiz. Nur grob gerundete Koordinaten (~1 km). Schweiz: EU-Angemessenheitsbeschluss (Art. 45 DSGVO).</p>                                                              
-                                              
-        <h3>4.7 Sonstiges</h3>                                                                                                                                                                              
-        <p>Keine Analytics-, Crash-Reporting- oder Werbe-Dienste. Keine Datenübermittlung an Werbenetzwerke oder Tracker.</p>
-      </section>                                                                                                                                                                                            
-                                                            
-      <section>                                                                                                                                                                                             
-        <h2>5. Übermittlungen in Drittländer</h2>                                                                                                                                                           
+
+        <h3>3.1 Registrierung und Nutzerkonto</h3>
+        <p>Um Sunchaser nutzen zu können, musst du ein Nutzerkonto anlegen.</p>
         <ul>
-          <li><strong>USA:</strong> Expo Push, Apple App Store – SCC und/oder EU-U.S. Data Privacy Framework</li>                                                                                           
-          <li><strong>Schweiz:</strong> Open-Meteo – EU-Angemessenheitsbeschluss</li>
-          <li><strong>Großbritannien:</strong> OpenStreetMap Foundation – EU-Angemessenheitsbeschluss</li>                                                                                                  
-        </ul>                                               
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>6. Speicherdauer im Überblick</h2>                                                                                                                                                              
-        <table>                                                                                                                                                                                             
+          <li><strong>Pflichtangaben:</strong> E-Mail-Adresse, Passwort, Anzeigename</li>
+          <li><strong>Freiwillige Angaben:</strong> Profilbild, Kurzbiografie</li>
+          <li><strong>Pflichtbestätigung:</strong> Du musst bestätigen, dass du mindestens 16 Jahre alt bist (Art. 8 DSGVO)</li>
+          <li><strong>E-Mail-Verifizierung:</strong> Nach der Registrierung senden wir dir einen Bestätigungslink über unseren E-Mail-Dienstleister Brevo</li>
+        </ul>
+        <p>In der Datenbank gespeichert werden: E-Mail-Adresse, Anzeigename, Profilbild-URL, Kurzbiografie, bevorzugter Lieblingsspot (optional), Standorterlaubnis (Boolean), Onboarding-Status.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). E-Mail-Verifizierung zusätzlich Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Missbrauchsverhinderung).</p>
+        <p><strong>Speicherdauer:</strong> Bis zur Kontolöschung. Passwörter werden nur als nicht umkehrbarer Hash gespeichert (bcrypt/scrypt via Supabase Auth).</p>
+
+        <h3>3.2 Standortdaten</h3>
+        <p>Mit deiner Einwilligung verarbeiten wir deinen Standort, um die folgenden Kernfunktionen der App bereitzustellen:</p>
+        <ul>
+          <li>Anzeige naher Spots in der Liste und auf der Karte, sortiert nach Entfernung</li>
+          <li>Berechnung der Sonnenauf- und -untergangszeiten sowie der aktuellen Sonnenqualität (Sun Barometer) für deinen genauen Standort</li>
+          <li>Automatische Stadtermittlung für die Anzeige</li>
+        </ul>
+        <p>Der Standort wird alle 30 Sekunden oder bei einer Bewegung von mehr als 50 Metern neu erfasst – ausschließlich während die App aktiv im Vordergrund genutzt wird. Ein Hintergrundstandortzugriff findet nicht statt. Standortdaten werden nicht dauerhaft in der Datenbank gespeichert. Die Koordinaten werden für Datenbankabfragen (Spots in der Nähe) und für Wetteranfragen an Open-Meteo in grob gerundeter Form (~1 km) als kurzlebiger Server-Cache verwendet. Ein Wert, ob du der Standorterfassung zugestimmt hast, wird als Boolean in deinem Profil gespeichert.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) i. V. m. § 25 Abs. 1 TDDDG. Widerruf jederzeit über die Systemeinstellungen deines Geräts möglich.</p>
+        <p><strong>Speicherdauer:</strong> Keine dauerhafte Speicherung der Koordinaten. Gerundeter Wetter-Cache max. 1 Stunde.</p>
+
+        <h3>3.3 Foto-Uploads</h3>
+        <p>Du kannst Fotos zu Spots und als Profilbild hochladen. Dabei gilt:</p>
+        <ul>
+          <li><strong>EXIF-Metadaten (insbesondere GPS-Koordinaten, Aufnahmezeit und Gerätedaten) werden vor dem Upload auf deinem Gerät vollständig entfernt</strong> (via expo-image-manipulator, Komprimierung auf 85 % JPEG). Es verlassen keine Standortinformationen aus dem Foto dein Gerät.</li>
+          <li>Fotos werden in Supabase Storage im EU-Rechenzentrum Stockholm gespeichert.</li>
+          <li><strong>Profilbilder</strong> werden im Bucket <em>avatars</em> unter dem Pfad <code>{userId}/avatar.jpg</code> gespeichert (max. 5 MB).</li>
+          <li><strong>Spot-Fotos</strong> (bei der Spot-Erstellung) werden im Bucket <em>spot-images</em> gespeichert (max. 10 MB pro Bild).</li>
+          <li><strong>Bewertungsfotos</strong> werden im Bucket <em>review-images</em> gespeichert, maximal 4 Fotos pro Bewertung (max. 5 MB pro Bild).</li>
+          <li>Hochgeladene Spot- und Bewertungsfotos sind für alle App-Nutzer öffentlich sichtbar.</li>
+          <li>Du bist als hochladende Person verantwortlich dafür, dass auf deinen Fotos keine erkennbaren Dritten ohne deren Einwilligung abgebildet sind.</li>
+        </ul>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</p>
+        <p><strong>Speicherdauer:</strong> Bis du das Foto löschst oder dein Konto löschst.</p>
+
+        <h3>3.4 Bewertungen und Check-ins</h3>
+        <p><strong>Bewertungen (Reviews):</strong> Nach einem Spot-Besuch kannst du eine Bewertung einreichen. Dabei werden folgende Daten gespeichert:</p>
+        <ul>
+          <li><strong>Pflichtfeld:</strong> Sterne-Bewertung (1–5 Sterne)</li>
+          <li><strong>Optional:</strong> Freitext-Kommentar</li>
+          <li><strong>Optional:</strong> bis zu 4 Fotos (EXIF-bereinigt, s. Abschnitt 3.3)</li>
+          <li><strong>Optional:</strong> Datum des Besuchs</li>
+          <li>Dein Anzeigename und deine Nutzer-ID werden der Bewertung zugeordnet</li>
+        </ul>
+        <p>Bewertungen sind öffentlich sichtbar mit deinem Anzeigename und Profilbild.</p>
+        <p><strong>Check-ins (temporäre Anwesenheitsmeldungen):</strong> Mit einem Klick auf „Ich bin hier" kannst du einen Check-in setzen. Dabei wird gespeichert: Nutzer-ID, Spot-ID, Ereignistyp (Sonnenauf- oder -untergang), Ablaufzeit. Check-ins sind <strong>temporäre Datensätze</strong> – sie verfallen automatisch 45 Minuten nach dem jeweiligen Sonnen-Ereignis und werden danach nicht weiterverarbeitet. Während der Laufzeit sind Check-ins für Freunde im Activity Feed sichtbar.</p>
+        <p><strong>Spot-Bewertungen (Upvote/Downvote):</strong> Du kannst Spots mit einem Upvote oder Downvote bewerten. Gespeichert werden: Nutzer-ID, Spot-ID, Stimmtyp (up/down). Diese Daten sind nicht direkt anderen Nutzern zugeordnet sichtbar; es wird lediglich die Gesamtbilanz angezeigt.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse aller Nutzer an dauerhaften, qualitätsvollen Bewertungen).</p>
+        <p><strong>Speicherdauer:</strong> Bewertungen bis zur Kontolöschung (danach anonymisiert, Art. 17 Abs. 3 lit. e DSGVO analog). Check-ins 45 Minuten nach dem Sonnen-Ereignis. Upvotes/Downvotes bis zur Kontolöschung.</p>
+
+        <h3>3.5 Badges und Abzeichen-System</h3>
+        <p>Sunchaser bietet ein motivationsbasiertes Abzeichen-System mit insgesamt <strong>35 Abzeichen in 5 Kategorien</strong>:</p>
+        <ul>
+          <li><strong>Sonnenuntergänge</strong> (6 Abzeichen): basierend auf der Anzahl besuchter Sunset-Spots</li>
+          <li><strong>Sonnenaufgänge</strong> (6 Abzeichen): basierend auf der Anzahl besuchter Sunrise-Spots</li>
+          <li><strong>Aktivität</strong> (4 Abzeichen): basierend auf der Anzahl erstellter Spots und geschriebener Bewertungen</li>
+          <li><strong>Soziales</strong> (5 Abzeichen): basierend auf der Anzahl von Freundschaften</li>
+          <li><strong>Engagement</strong> (5 Abzeichen): basierend auf vergebenen Likes und erhaltenen Likes auf eigene Spots</li>
+        </ul>
+        <p>Abzeichen werden nicht als separate Datensätze gespeichert, sondern bei jedem App-Aufruf dynamisch aus den bestehenden Aktivitätsdaten berechnet (Anzahl Bewertungen, erstellte Spots, Freunde, vergebene Likes). Es findet keine automatisierte Entscheidungsfindung mit rechtlicher Wirkung im Sinne von Art. 22 DSGVO statt. Streak-Zähler existieren nicht.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung – Abzeichen sind integraler Bestandteil des App-Konzepts).</p>
+        <p><strong>Speicherdauer:</strong> Die zugrundeliegenden Aktivitätsdaten bis zur Kontolöschung.</p>
+
+        <h3>3.6 Freunde-Funktion und Activity Feed</h3>
+        <p>Du kannst andere Nutzer per Anzeigename suchen und ihnen eine Freundschaftsanfrage senden. Nach gegenseitiger Bestätigung können Freunde gegenseitig folgende Daten einsehen:</p>
+        <ul>
+          <li>Profilname, Profilbild, Kurzbiografie, Lieblingsspot</li>
+          <li>Erstellte Spots und abgegebene Bewertungen (inkl. Kommentar, Sternebewertung, Fotos, Besuchsdatum)</li>
+          <li>Aktive Check-ins (für max. 45 Minuten nach Sonnen-Ereignis)</li>
+          <li>Spots, die der Freund geliked hat</li>
+          <li>Kommentare, die der Freund im Activity Feed abgegeben hat</li>
+          <li>Abzeichen-Stand und Anzahl besuchter Spots</li>
+          <li>Anzahl gemeinsamer Freunde</li>
+        </ul>
+        <p>In der Datenbank gespeichert werden Freundschaftsanfragen mit Status (ausstehend/angenommen/abgelehnt), Sender-ID und Empfänger-ID.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO.</p>
+        <p><strong>Speicherdauer:</strong> Bis du die Freundschaft beendest oder bis zur Kontolöschung.</p>
+
+        <h3>3.7 Kommentare im Activity Feed</h3>
+        <p>Du kannst Kommentare zu Spot-Beiträgen im Activity Feed abgeben, auf andere Kommentare antworten (Threading) und Kommentare liken oder melden. Gespeichert werden: Nutzer-ID, Anzeigename, Profilfoto-URL, Kommentartext, übergeordneter Kommentar-ID (bei Antworten), Erstellungs- und Änderungszeitpunkt. Kommentare sind für alle App-Nutzer öffentlich sichtbar. Gemeldete Kommentare werden mit Grund und einem Snapshot-Abbild des Inhalts gespeichert (Tabelle: <em>spot_feed_comment_reports</em>).</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung); bei Meldungen Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Community-Sicherheit).</p>
+        <p><strong>Speicherdauer:</strong> Bis zur Löschung des Kommentars durch den Nutzer oder bei Kontolöschung.</p>
+
+        <h3>3.8 Geräteberechtigungen im Überblick</h3>
+        <p>Für die genannten Funktionen benötigt die App folgende Zugriffsrechte. Jede Berechtigung kann in den Systemeinstellungen deines Geräts einzeln widerrufen werden.</p>
+        <table>
+          <thead><tr><th>Berechtigung</th><th>Zweck</th><th>Rechtsgrundlage</th></tr></thead>
+          <tbody>
+            <tr><td>Standort (nur Vordergrund)</td><td>Spots in der Nähe anzeigen, Entfernungssortierung, Sun Barometer für deinen Standort</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a DSGVO)</td></tr>
+            <tr><td>Kamera</td><td>Foto direkt aus der App aufnehmen und Spot oder Bewertung hinzufügen</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a DSGVO)</td></tr>
+            <tr><td>Foto-Galerie</td><td>Bestehendes Foto aus der Galerie als Spot- oder Bewertungsfoto hochladen</td><td>Einwilligung (§ 25 TDDDG, Art. 6 Abs. 1 lit. a DSGVO)</td></tr>
+          </tbody>
+        </table>
+        <p>Wir greifen <strong>NICHT</strong> zu auf: Push-Benachrichtigungen, Adressbuch/Kontakte, Mikrofon, Kalender, biometrische Daten (Face ID/Touch ID), Werbe-ID (IDFA/AAID) oder sonstige Tracking-Identifier.</p>
+
+        <h3>3.9 Automatisch erhobene technische Daten</h3>
+        <p>Sobald deine App mit unserem Server kommuniziert, werden technisch notwendige Daten verarbeitet: IP-Adresse, Gerätetyp und Betriebssystem-Version, App-Version, Anfragezeitpunkt sowie ggf. Fehlermeldungen.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen und sicheren Betrieb).</p>
+        <p><strong>Speicherdauer:</strong> Server-Logs max. 7 Tage; keine darüber hinausgehende Verhaltensanalyse.</p>
+
+        <h3>3.10 Gespeicherte Spots</h3>
+        <p>Du kannst Spots als Favoriten speichern (Lesezeichen-Funktion). Gespeichert werden: Nutzer-ID und Spot-ID sowie der Zeitpunkt der Speicherung. Diese Daten sind nur dir sichtbar.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. <strong>Speicherdauer:</strong> Bis du den Spot entfernst oder dein Konto löschst.</p>
+
+        <h3>3.11 Kontaktaufnahme per E-Mail</h3>
+        <p>Wenn du uns per E-Mail kontaktierst, verarbeiten wir deine E-Mail-Adresse und den Inhalt deiner Nachricht.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b oder f DSGVO. <strong>Speicherdauer:</strong> Bis zu 3 Jahre nach Abschluss der Anfrage.</p>
+
+        <h2>4. Empfänger und Auftragsverarbeiter</h2>
+
+        <h3>4.1 Supabase (Backend, Datenbank, Authentifizierung, Dateispeicher)</h3>
+        <p><strong>Anbieter:</strong> Supabase, Inc., Singapur. Alle Daten werden ausschließlich im EU-Rechenzentrum Stockholm (Schweden) gespeichert. Verschlüsselung at rest und in transit (TLS). Row Level Security ist auf allen relevanten Datenbanktabellen aktiv, sodass Nutzer nur auf ihre eigenen Daten zugreifen können. DPA mit Standardvertragsklauseln (SCC) nach Art. 46 DSGVO geschlossen.</p>
+        <p><strong>Verarbeitete Daten:</strong> Kontodaten, Profilinfos, Spots, Bewertungen, Check-ins, Likes, Freundschaften, Kommentare, Foto-Uploads, Verbindungs- und Authentifizierungsdaten.</p>
+
+        <h3>4.2 Brevo (transaktionale E-Mails)</h3>
+        <p><strong>Anbieter:</strong> Sendinblue SAS (Marke: Brevo), 106 Boulevard Haussmann, 75008 Paris, Frankreich. Server in der EU. Brevo wird ausschließlich für transaktionale System-E-Mails genutzt (Registrierungsbestätigung via Bestätigungslink, Passwort-Reset, Sicherheitsbenachrichtigungen). Kein Marketing-E-Mail-Versand.</p>
+        <p><strong>Verarbeitete Daten:</strong> E-Mail-Adresse, Inhalt der System-E-Mail, Versandzeitpunkt.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. DPA mit Brevo geschlossen.</p>
+
+        <h3>4.3 App-Store-Betreiber (Apple, Google)</h3>
+        <p>Beim Download und der Installation verarbeiten Apple (App Store) und Google (Play Store) eigenverantwortlich Daten wie App-Store-Kontodaten, Geräteinformationen und Download-Statistiken. Wir haben keinen Einfluss auf diese Verarbeitung.</p>
+        <ul>
+          <li>Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
+          <li>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</li>
+        </ul>
+
+        <h3>4.4 Karten (OpenStreetMap / MapLibre)</h3>
+        <p>Für die Kartenansicht in der App werden OpenStreetMap-Daten über die MapLibre-Bibliothek verwendet. Der Karteninhalt wird vom OpenStreetMap-Foundation-Server in Großbritannien geliefert (EU-Angemessenheitsbeschluss vom Juni 2021). Beim Klick auf „In Google Maps öffnen" wirst du zur separaten Google-Maps-App weitergeleitet; deine Daten werden dann von Google eigenverantwortlich verarbeitet.</p>
+
+        <h3>4.5 Open-Meteo (Wetterdaten / Sun Barometer)</h3>
+        <p><strong>Anbieter:</strong> Open-Meteo GmbH, Zürich, Schweiz (EU-Angemessenheitsbeschluss, Art. 45 DSGVO). An Open-Meteo werden ausschließlich grob gerundete Koordinaten (~1 km) übermittelt – keine direkt personenbeziehbaren Daten. Die zurückgelieferten Wetterdaten werden kurzfristig serverseitig zwischengespeichert (max. 1 Stunde) und danach verworfen.</p>
+
+        <h3>4.6 Sonstiges</h3>
+        <p>Wir setzen aktuell keine Analytics-, Crash-Reporting- oder Werbe-Dienstleister ein. Es findet keine Übermittlung von Daten an Werbenetzwerke, Tracking-Anbieter oder sonstige Dritte statt.</p>
+
+        <h2>5. Übermittlungen in Drittländer</h2>
+        <ul>
+          <li><strong>USA:</strong> Apple App Store. Schutzmechanismus: EU-U.S. Data Privacy Framework (Angemessenheitsbeschluss Juli 2023) und/oder Standardvertragsklauseln.</li>
+          <li><strong>Schweiz:</strong> Open-Meteo. Schutzmechanismus: EU-Angemessenheitsbeschluss (Art. 45 DSGVO).</li>
+          <li><strong>Großbritannien:</strong> OpenStreetMap Foundation. Schutzmechanismus: EU-Angemessenheitsbeschluss (Art. 45 DSGVO).</li>
+        </ul>
+        <p>Supabase und Brevo verarbeiten Daten ausschließlich innerhalb der EU (Stockholm bzw. Paris), sodass keine Drittlandsübermittlung stattfindet.</p>
+
+        <h2>6. Speicherdauer im Überblick</h2>
+        <table>
           <thead><tr><th>Datenkategorie</th><th>Speicherdauer</th></tr></thead>
-          <tbody>                                                                                                                                                                                           
-            <tr><td>Kontodaten (E-Mail, Name, Passwort-Hash)</td><td>Bis zur Kontolöschung</td></tr>
-            <tr><td>Profilbild und freiwillige Angaben</td><td>Bis zur Kontolöschung</td></tr>
-            <tr><td>Standortdaten (lokal &amp; Server-Cache)</td><td>Max. 1 Stunde, danach überschrieben</td></tr>                                                                                          
-            <tr><td>Besuchte Spots und Visit-Historie</td><td>Bis zur Kontolöschung</td></tr>
-            <tr><td>Bewertungen und Kommentare</td><td>Bis zur Kontolöschung; danach anonymisiert</td></tr>                                                                                                 
-            <tr><td>Hochgeladene Fotos</td><td>Bis zur Löschung des Fotos oder Kontos</td></tr>                                                                                                             
-            <tr><td>Push-Token</td><td>Solange App installiert und Push aktiv</td></tr>                                                                                                                     
-            <tr><td>Server-Logs (inkl. IP)</td><td>Max. 7 Tage</td></tr>                                                                                                                                    
-            <tr><td>Support-E-Mails</td><td>3 Jahre nach Abschluss</td></tr>                                                                                                                                
-          </tbody>                                                                                                                                                                                          
-        </table>                                                                                                                                                                                            
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>7. Deine Rechte als betroffene Person</h2>      
-        <ul>                                                                                                                                                                                                
-          <li><strong>Auskunft</strong> (Art. 15 DSGVO) – welche Daten wir verarbeiten. Anfrage per E-Mail.</li>
-          <li><strong>Berichtigung</strong> (Art. 16 DSGVO) – Korrektur unrichtiger Daten.</li>
-          <li><strong>Löschung</strong> (Art. 17 DSGVO) – Löschung deiner Daten. In der App: Profil → Menü → Delete account.</li>
-          <li><strong>Einschränkung</strong> (Art. 18 DSGVO) – Einschränkung der Verarbeitung.</li>                                                                                                         
-          <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO) – Daten in JSON per E-Mail anfordern.</li>                                                                                              
-          <li><strong>Widerspruch</strong> (Art. 21 DSGVO) – gegen Verarbeitung auf Basis berechtigter Interessen.</li>                                                                                     
-          <li><strong>Widerruf</strong> (Art. 7 Abs. 3 DSGVO) – Einwilligungen jederzeit widerrufen, ohne dass die Rechtmäßigkeit der bisherigen Verarbeitung berührt wird.</li>                            
-        </ul>                                                                                                                                                                                               
-        <p>Formlose E-Mail an <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a> genügt.</p>                                                                                                  
-                                                                                                                                                                                                            
-        <h3>Zuständige Aufsichtsbehörde</h3>                                                                                                                                                                
-        <div class="contact-card">                                                                                                                                                                          
-          <strong>Der Hessische Beauftragte für Datenschutz und Informationsfreiheit</strong>                                                                                                               
-          Postfach 3163 · 65021 Wiesbaden · Deutschland<br>                                                                                                                                                 
-          <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a>                                                                                                  
-        </div>                                                                                                                                                                                              
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>8. Weitere Hinweise</h2>                                                                                                                                                                        
-                                                                                                                                                                                                            
-        <h3>Pflicht zur Bereitstellung</h3>                 
-        <p>E-Mail, Anzeigename, Passwort und Altersbestätigung sind für die Nutzung erforderlich. Alle anderen Angaben sind freiwillig.</p>
-                                              
-        <h3>Automatisierte Entscheidungsfindung</h3>                                                                                                                                                        
-        <p>Kein Einsatz automatisierter Entscheidungsfindung nach Art. 22 DSGVO. Das Badge-System ist motivationsbasiert ohne rechtliche Wirkung.</p>
-                                                                                                                                                                                                            
-        <h3>Datensicherheit</h3>                                                                                                                                                                            
-        <ul>                                                                                                                                                                                                
-          <li>HTTPS/TLS-Verschlüsselung für alle Übertragungen</li>                                                                                                                                         
-          <li>Datenbank-Verschlüsselung at rest</li>        
-          <li>Passwörter nur als Hash (bcrypt/scrypt, Supabase Auth)</li>                                                                                                                                   
-          <li>Row Level Security auf Datenbankebene</li>                                                                                                                                                    
-          <li>2-Faktor-Authentifizierung für Admin-Zugänge</li>
-          <li>Tägliche automatische Backups</li>                                                                                                                                                            
-          <li>Regelmäßige Bibliotheks-Updates</li>                                                                                                                                                          
-        </ul>                                                                                                                                                                                               
-                                                                                                                                                                                                            
-        <h3>Minderjährigenschutz</h3>                                                                                                                                                                       
-        <p>Sunchaser ab 16 Jahren. Altersbestätigung bei Registrierung erforderlich. Konten unter 16-Jähriger werden nach Kenntnisnahme unverzüglich gelöscht. Erziehungsberechtigte: <a                    
-  href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</p>
-                                                                                                                                                                                                            
-        <h3>Änderungen dieser Erklärung</h3>                
-        <p>Aktuelle Fassung abrufbar via App (Profil → Menü → Datenschutz) und unter <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a>. Wesentliche Änderungen  
-  werden beim nächsten App-Start angezeigt.</p>
-      </section>                                                                                                                                                                                            
-                                                            
-    </div><!-- /lang-de -->                                                                                                                                                                                 
-                                          
-    <!-- ENGLISH -->                                                                                                                                                                                        
-    <div id="lang-en" class="lang-section">                                                                                                                                                                 
-   
-      <section>                                                                                                                                                                                             
-        <h2>Privacy Policy</h2>                             
-        <p style="margin-bottom:16px;font-size:13px;color:rgba(58,31,10,0.45);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Last update: May 2026</p>
-        <p>This privacy policy informs you about how we process personal data when you use the Sunchaser mobile app. We comply with GDPR, BDSG and TDDDG.</p>
-                                              
-        <div class="note-box">            
-          <div class="note-box-title">What you should know</div>                                                                                                                                            
-          <div class="note-box-body">Sunchaser is ad-free and tracking-free. No analytics SDK, no advertising IDs, no data sales. Location is only processed briefly on your device and at most one hour as 
-  a rounded cache key on the server. You can delete your account and all data directly in the app at any time.</div>                                                                                        
-        </div>                                                                                                                                                                                              
-        <ul>                                                
-          <li>We only collect data required for app functionality or by law.</li>                                                                                                                           
-          <li>Backend and storage in the EU (Stockholm) with Supabase.</li>
-          <li>Push notifications via Expo Push (USA, Standard Contractual Clauses).</li>                                                                                                                    
-          <li>You have the right to access, rectification, erasure, portability and objection at any time.</li>
-        </ul>                                                                                                                                                                                               
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>1. Data controller</h2>                                                                                                                                                                         
-        <div class="contact-card">                                                                                                                                                                          
-          <strong>Daniel Nakouzi</strong>                                                                                                                                                                   
-          Trading as: Sunchaser<br>                         
-          Mörfelder Landstraße 88 · 60598 Frankfurt am Main · Germany<br><br>
-          Phone: +49 152 02181588<br>         
-          Email: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>                                                                                                                           
-        </div>                                
-        <p>No DPO appointed (not required under § 38 BDSG). Direct all requests to the email above.</p>                                                                                                     
-      </section>                                            
-                                                                                                                                                                                                            
-      <section>                                             
-        <h2>2. Terminology</h2>                                                                                                                                                                             
-        <p>"Personal data" = any information relating to an identifiable person (Art. 4(1) GDPR). "Processing" = any operation on personal data – collection, storage, use, transfer, deletion (Art. 4(2)
-  GDPR).</p>                                                                                                                                                                                                
-      </section>                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>3. Processing activities in detail</h2>
-                                                                                                                                                                                                            
-        <h3>3.1 Registration and user account</h3>          
-        <ul>                              
-          <li><strong>Required:</strong> email address, password, display name</li>                                                                                                                         
-          <li><strong>Optional:</strong> profile picture, short bio</li>                                                                                                                                    
-          <li><strong>Mandatory confirmation:</strong> minimum age 16 (Art. 8 GDPR)</li>                                                                                                                    
-          <li><strong>Email verification:</strong> confirmation link after registration</li>                                                                                                                
-        </ul>                                                                                                                                                                                               
-        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR; verification additionally Art. 6(1)(f) GDPR.<br>
-        <strong>Storage:</strong> Until account deletion. Passwords as non-reversible hash only.</p>                                                                                                        
-                                                                                                                                                                                                            
-        <h3>3.2 Location data</h3>                                                                                                                                                                          
-        <p>With consent: nearby spots, distance sorting, personalised sun times and quality. Foreground only, never background. Server: coordinates rounded to ~1 km, max. 1 hour as weather cache key.</p> 
-        <p><strong>Legal basis:</strong> Art. 6(1)(a) GDPR + § 25(1) TDDDG. Revocable in device settings.</p>                                                                                               
-                                                                                                                                                                                                            
-        <h3>3.3 Photo uploads</h3>                                                                                                                                                                          
-        <ul>                                                                                                                                                                                                
-          <li>Photos are public and associated with a spot.</li>                                                                                                                                            
-          <li>EXIF metadata (GPS, device, timestamp) removed on device before upload via expo-image-manipulator.</li>                                                                                       
-          <li>Like counts stored only, not who liked.</li>                                                                                                                                                  
-          <li>You are responsible for ensuring no identifiable third parties appear without consent.</li>                                                                                                   
-        </ul>                                                                                                                                                                                               
-        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage:</strong> Until photo or account deleted.</p>                                                                                   
-                                                                                                                                                                                                            
-        <h3>3.4 Reviews, comments and Sun Score</h3>                                                                                                                                                        
-        <ul>                                                                                                                                                                                                
-          <li><strong>Data:</strong> thumbs up/down, comment, vibe tags, visit date/time, optional photo.</li>                                                                                              
-          <li><strong>Visible to others:</strong> display name, profile picture, badge level, spots count.</li>
-        </ul>                                                                                                                                                                                               
-        <p><strong>Legal basis:</strong> Art. 6(1)(b) and (f) GDPR. After deletion, reviews retained anonymised (Art. 17(3)(e) GDPR analogous).</p>                                                         
-                                                                                                                                                                                                            
-        <h3>3.5 Badges and gamification</h3>                                                                                                                                                                
-        <p>Visited spots, which spots, streak counters for "Rookie", "Explorer", "Golden Hour", "Sun Legend". No automated decision-making with legal effect (Art. 22 GDPR).</p>                            
-        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage:</strong> Until account deletion.</p>                                                                                           
-                                                                                                                                                                                                            
-        <h3>3.6 Friends feature</h3>                                                                                                                                                                        
-        <p>Search by display name, friend requests. After confirmation: visited spots, badge progress and activity feed mutually visible.</p>                                                               
-        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage:</strong> Until friendship ends or account deleted.</p>                                                                         
-                                                                                                                                                                                                            
-        <h3>3.7 Push notifications</h3>                                                                                                                                                                     
-        <p>With consent: sunset/sunrise reminders, badge unlocks, system notifications. No advertising. Anonymous push token from device.</p>                                                               
-        <p><strong>Legal basis:</strong> Art. 6(1)(a) GDPR + § 25(1) TDDDG. Revocable in device settings or in-app.</p>                                                                                     
-                                                                                                                                                                                                            
-        <h3>3.8 Device permissions overview</h3>                                                                                                                                                            
-        <table>                                                                                                                                                                                             
-          <thead><tr><th>Permission</th><th>Purpose</th><th>Legal basis</th></tr></thead>                                                                                                                   
-          <tbody>                                                                                                                                                                                           
-            <tr><td>Location (foreground only)</td><td>Nearby spots, distance, sun quality</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a))</td></tr>                                                             
-            <tr><td>Camera</td><td>Capture photo in-app</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a))</td></tr>                                                                                                
-            <tr><td>Photo gallery</td><td>Upload existing photo</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a))</td></tr>
-            <tr><td>Push notifications</td><td>Reminders and badge unlocks</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a))</td></tr>                                                                             
-          </tbody>                                                                                                                                                                                          
-        </table>                                                                                                                                                                                            
-        <p>We do <strong>NOT</strong> access: contacts, microphone, calendar, biometric data, advertising ID (IDFA/AAID) or other tracking identifiers.</p>                                                 
-                                                                                                                                                                                                            
-        <h3>3.9 Technical data</h3>                                                                                                                                                                         
-        <p>IP address, device type, OS version, app version, request timestamp, error messages. Purpose: operations, abuse prevention, debugging.</p>                                                       
-        <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR. <strong>Storage:</strong> Max. 7 days.</p>                                                                                                      
-                                              
-        <h3>3.10 Email contact</h3>                                                                                                                                                                         
-        <p>Contacting us at <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>: email address and message content.</p>                                                                        
-        <p><strong>Legal basis:</strong> Art. 6(1)(b) or (f) GDPR. <strong>Storage:</strong> Up to 3 years after conclusion.</p>                                                                            
-      </section>                                                                                                                                                                                            
-                                                                                                                                                                                                            
-      <section>                                                                                                                                                                                             
-        <h2>4. Recipients and processors</h2>                                                                                                                                                               
-        <p style="margin-bottom:16px;">Data processing agreements (Art. 28 GDPR) in place with all processors.</p>                                                                                          
-                                                                                                                                                                                                            
-        <h3>4.1 Supabase</h3>                               
-        <p>Supabase, Inc., Singapore. EU data centre, Stockholm (Sweden). Encryption at rest and in transit (TLS). Row Level Security active. DPA with Standard Contractual Clauses (Art. 46 GDPR).</p>     
-                                                                                                                                                                                                            
-        <h3>4.2 Expo Push</h3>                                                                                                                                                                              
-        <p>650 Industries Inc. d/b/a Expo, San Francisco, CA, USA. Anonymous push token and notification content. SCC (Art. 46(2)(c) GDPR) and EU-U.S. Data Privacy Framework.</p>                          
-                                                                                                                                                                                                            
-        <h3>4.3 Brevo</h3>                                                                                                                                                                                  
-        <p>Sendinblue SAS, Paris, France (brand: Brevo). EU servers. Transactional emails (confirmation, password reset, security notifications). DPA in place.</p>                                         
-                                                                                                                                                                                                            
-        <h3>4.4 App store operators</h3>                    
-        <p>Apple and Google process download data independently. Apple Inc., Cupertino, CA, USA · Google Ireland Limited, Dublin, Ireland.</p>                                                              
-                                                                                                                                                                                                            
-        <h3>4.5 Maps and navigation</h3>  
-        <p>Currently: OpenStreetMap via MapLibre (OpenStreetMap Foundation, UK – EU adequacy decision). Future: Apple Maps. "Open in Google Maps" redirects to Google Maps app (Google processes            
-  independently).</p>                                                                                                                                                                                       
-                                          
-        <h3>4.6 Open-Meteo</h3>                                                                                                                                                                             
-        <p>Open-Meteo GmbH, Zurich, Switzerland. Rounded coordinates (~1 km) only. Switzerland: EU adequacy decision (Art. 45 GDPR).</p>                                                                    
-                                              
-        <h3>4.7 Other</h3>                                                                                                                                                                                  
-        <p>No analytics, crash reporting or advertising services. No data to ad networks or trackers.</p>
-      </section>                                                                                                                                                                                            
-                                                            
-      <section>                                                                                                                                                                                             
-        <h2>5. Third-country transfers</h2>                                                                                                                                                                 
+          <tbody>
+            <tr><td>Kontodaten (E-Mail, Anzeigename, Passwort-Hash)</td><td>Bis zur Kontolöschung</td></tr>
+            <tr><td>Profilbild, Bio, Lieblingsspot</td><td>Bis zur Kontolöschung</td></tr>
+            <tr><td>Standortdaten (live, Gerät)</td><td>Nicht dauerhaft gespeichert</td></tr>
+            <tr><td>Gerundeter Wetter-Cache (Server)</td><td>Max. 1 Stunde</td></tr>
+            <tr><td>Bewertungen (Sterne, Text, Fotos, Datum)</td><td>Bis Kontolöschung; danach anonymisiert</td></tr>
+            <tr><td>Check-ins</td><td>45 Minuten nach dem Sonnen-Ereignis</td></tr>
+            <tr><td>Spot-Upvotes / Downvotes</td><td>Bis zur Kontolöschung</td></tr>
+            <tr><td>Hochgeladene Fotos (Spot, Bewertung, Profil)</td><td>Bis zur Foto- oder Kontolöschung</td></tr>
+            <tr><td>Gespeicherte Spots (Favoriten)</td><td>Bis zur Kontolöschung</td></tr>
+            <tr><td>Freundschaften</td><td>Bis Beendigung oder Kontolöschung</td></tr>
+            <tr><td>Activity-Feed-Kommentare</td><td>Bis zur Kommentar- oder Kontolöschung</td></tr>
+            <tr><td>Server-Log-Dateien (IP-Adresse)</td><td>Max. 7 Tage</td></tr>
+            <tr><td>Support-E-Mails</td><td>3 Jahre nach Abschluss der Anfrage</td></tr>
+          </tbody>
+        </table>
+
+        <h2>7. Deine Rechte als betroffene Person</h2>
         <ul>
-          <li><strong>USA:</strong> Expo Push, Apple App Store – SCC and/or EU-U.S. Data Privacy Framework</li>                                                                                             
-          <li><strong>Switzerland:</strong> Open-Meteo – EU adequacy decision</li>
-          <li><strong>United Kingdom:</strong> OpenStreetMap Foundation – EU adequacy decision</li>
-        </ul>                                 
-      </section>                                                                                                                                                                                            
-   
-      <section>                                                                                                                                                                                             
-        <h2>6. Storage periods overview</h2>                
-        <table>                                                                                                                                                                                             
+          <li><strong>Auskunft</strong> (Art. 15 DSGVO) – welche Daten wir über dich verarbeiten</li>
+          <li><strong>Berichtigung</strong> (Art. 16 DSGVO) – Korrektur unrichtiger Daten</li>
+          <li><strong>Löschung</strong> (Art. 17 DSGVO) – auch direkt in der App: Profil → Menü → Delete account</li>
+          <li><strong>Einschränkung</strong> (Art. 18 DSGVO) – Einschränkung der Verarbeitung</li>
+          <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO) – strukturiertes, maschinenlesbares Format</li>
+          <li><strong>Widerspruch</strong> (Art. 21 DSGVO) – gegen Verarbeitung auf Basis berechtigter Interessen</li>
+          <li><strong>Widerruf von Einwilligungen</strong> (Art. 7 Abs. 3 DSGVO) – Standort, Kamera, Fotogalerie jederzeit in Geräteeinstellungen widerrufbar</li>
+        </ul>
+        <p>Eine formlose E-Mail an <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a> genügt.</p>
+
+        <h2>8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+        <p>Zuständige Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO):</p>
+        <div class="contact-block">
+          <strong>Der Hessische Beauftragte für Datenschutz und Informationsfreiheit</strong><br>
+          Postfach 3163<br>
+          65021 Wiesbaden<br>
+          Deutschland<br>
+          <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a>
+        </div>
+        <p>Du kannst dich auch an die Aufsichtsbehörde deines üblichen Aufenthaltsorts oder Arbeitsplatzes wenden.</p>
+
+        <h2>9. Pflicht zur Bereitstellung der Daten</h2>
+        <p>Die Bereitstellung von E-Mail-Adresse, Anzeigename, Passwort und Altersbestätigung ist zur Nutzung der App erforderlich. Alle anderen Angaben (Profilbild, Bio, Standort, Kamera, Fotogalerie) sind freiwillig – ohne sie ist die App weiterhin nutzbar, einzelne Funktionen jedoch eingeschränkt.</p>
+
+        <h2>10. Automatisierte Entscheidungsfindung und Profiling</h2>
+        <p>Wir setzen keine automatisierte Entscheidungsfindung im Sinne von Art. 22 DSGVO ein. Das Abzeichen-System ist rein motivationsbasiert und hat keine rechtliche oder vergleichbar erhebliche Wirkung auf dich.</p>
+
+        <h2>11. Datensicherheit</h2>
+        <ul>
+          <li>Verschlüsselte Übertragung aller Daten via HTTPS / TLS</li>
+          <li>Verschlüsselung der Datenbank im Ruhezustand (Supabase)</li>
+          <li>Passwörter nur als Hash gespeichert (bcrypt/scrypt via Supabase Auth)</li>
+          <li>Row Level Security auf Datenbankebene (jeder Nutzer sieht nur die für ihn bestimmten Daten)</li>
+          <li>Zwei-Faktor-Authentifizierung für alle administrativen Zugänge</li>
+          <li>Tägliche automatische Backups durch Supabase</li>
+          <li>Regelmäßige Aktualisierung der eingesetzten Software-Bibliotheken</li>
+          <li>EXIF-Bereinigung aller hochgeladenen Fotos vor der Übertragung</li>
+        </ul>
+
+        <h2>12. Schutz Minderjähriger</h2>
+        <p>Sunchaser richtet sich an Nutzer ab 16 Jahren. Bei der Registrierung muss ausdrücklich bestätigt werden, dass man mindestens 16 Jahre alt ist. Erhalten wir Kenntnis davon, dass ein Konto von einer Person unter 16 Jahren ohne Einwilligung der Erziehungsberechtigten angelegt wurde, löschen wir das Konto unverzüglich. Erziehungsberechtigte können uns unter <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a> kontaktieren.</p>
+
+        <h2>13. Änderungen dieser Datenschutzerklärung</h2>
+        <p>Wir behalten uns vor, diese Erklärung anzupassen, wenn sich die rechtliche Lage, unsere Verarbeitungen oder die App-Funktionen ändern. Die jeweils aktuelle Fassung ist über die App (Profil → Menü → Legal &amp; Privacy) sowie unter <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a> abrufbar. Bei wesentlichen Änderungen informieren wir dich beim nächsten App-Start.</p>
+
+        <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+      </div>
+    </div>
+
+    <!-- ─── ENGLISH ─── -->
+    <div id="lang-en" class="lang-section">
+      <div class="card">
+        <h1>Privacy Policy</h1>
+        <p class="page-meta">Last update: May 2026</p>
+
+        <p>This privacy policy informs you how we process personal data when you use the mobile app "Sunchaser" (hereinafter "App"). We comply with the General Data Protection Regulation (GDPR), the German Federal Data Protection Act (BDSG) and the German Telecommunications Digital Services Data Protection Act (TDDDG).</p>
+
+        <div class="note-box">
+          <div class="note-box-title">What you should know</div>
+          <div class="note-box-body">Sunchaser is ad-free and tracking-free. We use no analytics SDK, no crash reporting, no advertising IDs, and we never sell data. Location data is only processed while the app is actively in the foreground and is never stored permanently. You can delete your account and all associated data at any time directly within the app.</div>
+        </div>
+        <ul>
+          <li>We only collect data required for app functionality or by law.</li>
+          <li>Backend and data storage are located in the EU (Stockholm) with Supabase.</li>
+          <li>No push notifications are sent and no push tokens are collected at this time.</li>
+          <li>You have the right to access, rectification, deletion, data portability and objection at any time.</li>
+        </ul>
+
+        <h2>1. Data controller</h2>
+        <div class="contact-block">
+          <strong>Daniel Nakouzi</strong><br>
+          Trading as: Sunchaser<br>
+          Mörfelder Landstraße 88<br>
+          60598 Frankfurt am Main<br>
+          Germany<br><br>
+          Phone: +49 152 02181588<br>
+          Email: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
+        </div>
+        <p>No Data Protection Officer has been appointed as this is not required under § 38 BDSG for our sole proprietorship.</p>
+
+        <h2>2. Terminology</h2>
+        <p>"Personal data" means any information relating to an identified or identifiable natural person (Art. 4(1) GDPR). "Processing" means any operation involving personal data (Art. 4(2) GDPR).</p>
+
+        <h2>3. Processing activities in detail</h2>
+
+        <h3>3.1 Registration and user account</h3>
+        <ul>
+          <li><strong>Required:</strong> email address, password, display name</li>
+          <li><strong>Optional:</strong> profile picture, short bio</li>
+          <li><strong>Mandatory confirmation:</strong> you must confirm you are at least 16 years old (Art. 8 GDPR)</li>
+          <li><strong>Email verification:</strong> we send a confirmation link via Brevo after registration</li>
+        </ul>
+        <p>Stored in the database: email address, display name, profile picture URL, bio, favourite spot (optional), location permission flag (boolean), onboarding status.</p>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. Email verification additionally Art. 6(1)(f) GDPR.</p>
+        <p><strong>Storage period:</strong> Until account deletion. Passwords are stored only as an irreversible hash (bcrypt/scrypt via Supabase Auth).</p>
+
+        <h3>3.2 Location data</h3>
+        <p>With your consent, we process your location to provide the app's core features: showing nearby spots sorted by distance, calculating personalised sunrise/sunset times and the Sun Barometer (sun quality) for your exact location, and determining your city name for display.</p>
+        <p>Location is refreshed every 30 seconds or after 50 metres of movement — only while the app is actively in the foreground. No background location access takes place. Coordinates are not stored permanently in the database. Rounded coordinates (~1 km) are used as a short-lived server-side cache key for Open-Meteo weather requests (max. 1 hour). A boolean indicating whether you granted location permission is stored in your profile.</p>
+        <p><strong>Legal basis:</strong> Art. 6(1)(a) GDPR + § 25(1) TDDDG. Revocable at any time in device settings.</p>
+
+        <h3>3.3 Photo uploads</h3>
+        <ul>
+          <li><strong>EXIF metadata (GPS coordinates, capture time, device info) is fully stripped on your device before upload</strong> (via expo-image-manipulator, 85% JPEG re-encoding). No location information from photos leaves your device.</li>
+          <li>Photos are stored in Supabase Storage in the EU data centre in Stockholm.</li>
+          <li><strong>Profile pictures:</strong> bucket <em>avatars</em>, path <code>{userId}/avatar.jpg</code> (max. 5 MB)</li>
+          <li><strong>Spot photos</strong> (when creating a spot): bucket <em>spot-images</em> (max. 10 MB per image)</li>
+          <li><strong>Review photos:</strong> bucket <em>review-images</em>, max. 4 photos per review (max. 5 MB each)</li>
+          <li>Spot and review photos are publicly visible to all app users.</li>
+        </ul>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage period:</strong> Until you delete the photo or your account.</p>
+
+        <h3>3.4 Reviews and check-ins</h3>
+        <p><strong>Reviews:</strong> After visiting a spot, you can submit a review. The following data is stored:</p>
+        <ul>
+          <li><strong>Required:</strong> star rating (1–5 stars)</li>
+          <li><strong>Optional:</strong> free-text comment</li>
+          <li><strong>Optional:</strong> up to 4 photos (EXIF-stripped, see section 3.3)</li>
+          <li><strong>Optional:</strong> date of visit</li>
+          <li>Your display name and user ID are associated with the review</li>
+        </ul>
+        <p>Reviews are publicly visible with your display name and profile picture.</p>
+        <p><strong>Check-ins (temporary presence signals):</strong> Tapping "I'm here" creates a check-in. Stored: user ID, spot ID, event type (sunrise/sunset), expiry timestamp. Check-ins are <strong>temporary records — they expire automatically 45 minutes after the sun event</strong> and are not processed further afterwards. During their lifetime, check-ins are visible to friends in the Activity Feed.</p>
+        <p><strong>Spot votes (Upvote/Downvote):</strong> You can upvote or downvote spots. Stored: user ID, spot ID, vote type (up/down). Only the aggregate score is displayed to other users, not who voted.</p>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) + (f) GDPR. <strong>Storage period:</strong> Reviews until account deletion (then anonymised, Art. 17(3)(e) GDPR analogous). Check-ins 45 minutes after sun event. Votes until account deletion.</p>
+
+        <h3>3.5 Badges and achievement system</h3>
+        <p>Sunchaser offers a motivation-based achievement system with <strong>35 badges across 5 categories</strong>:</p>
+        <ul>
+          <li><strong>Sunsets</strong> (6 badges): based on number of sunset spots visited</li>
+          <li><strong>Sunrises</strong> (6 badges): based on number of sunrise spots visited</li>
+          <li><strong>Activity</strong> (4 badges): based on spots created and reviews written</li>
+          <li><strong>Social</strong> (5 badges): based on number of friendships</li>
+          <li><strong>Engagement</strong> (5 badges): based on likes given and likes received on your spots</li>
+        </ul>
+        <p>Badges are not stored as separate records — they are calculated dynamically on every app launch from existing activity data. No automated decision-making with legal effect under Art. 22 GDPR takes place. There are no streak counters.</p>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage period:</strong> The underlying activity data until account deletion.</p>
+
+        <h3>3.6 Friends feature and Activity Feed</h3>
+        <p>You can search for users by display name and send friend requests. After mutual confirmation, friends can see:</p>
+        <ul>
+          <li>Profile name, picture, bio and favourite spot</li>
+          <li>Created spots and submitted reviews (including comment, star rating, photos, visit date)</li>
+          <li>Active check-ins (visible for max. 45 minutes after sun event)</li>
+          <li>Spots the friend has liked</li>
+          <li>Comments the friend has posted in the Activity Feed</li>
+          <li>Badge status and number of spots visited</li>
+          <li>Number of mutual friends</li>
+        </ul>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage period:</strong> Until friendship is ended or account is deleted.</p>
+
+        <h3>3.7 Activity Feed comments</h3>
+        <p>You can post comments on spot entries in the Activity Feed, reply to other comments (threading), and like or report comments. Stored: user ID, display name, profile picture URL, comment text, parent comment ID (for replies), creation and modification timestamps. Comments are publicly visible to all app users. Reported comments are stored with reason and a content snapshot (table: <em>spot_feed_comment_reports</em>).</p>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR; for reports Art. 6(1)(f) GDPR. <strong>Storage period:</strong> Until deleted by user or account deletion.</p>
+
+        <h3>3.8 Device permissions overview</h3>
+        <table>
+          <thead><tr><th>Permission</th><th>Purpose</th><th>Legal basis</th></tr></thead>
+          <tbody>
+            <tr><td>Location (foreground only)</td><td>Nearby spots, distance sorting, Sun Barometer for your location</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a) GDPR)</td></tr>
+            <tr><td>Camera</td><td>Take photos directly in-app for spots or reviews</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a) GDPR)</td></tr>
+            <tr><td>Photo gallery</td><td>Upload existing photos for spots or reviews</td><td>Consent (§ 25 TDDDG, Art. 6(1)(a) GDPR)</td></tr>
+          </tbody>
+        </table>
+        <p>We do <strong>NOT</strong> access: push notifications, contacts/address book, microphone, calendar, biometric data (Face ID/Touch ID), advertising IDs (IDFA/AAID) or any other tracking identifiers.</p>
+
+        <h3>3.9 Automatically collected technical data</h3>
+        <p>IP address, device type, OS version, app version, request timestamp, error messages if any. <strong>Legal basis:</strong> Art. 6(1)(f) GDPR. <strong>Storage period:</strong> Max. 7 days; no behavioural analysis.</p>
+
+        <h3>3.10 Saved spots</h3>
+        <p>You can bookmark spots as favourites. Stored: user ID, spot ID, timestamp. Only visible to you. <strong>Legal basis:</strong> Art. 6(1)(b) GDPR. <strong>Storage period:</strong> Until removed or account deleted.</p>
+
+        <h3>3.11 Email contact and support</h3>
+        <p><strong>Legal basis:</strong> Art. 6(1)(b) or (f) GDPR. <strong>Storage period:</strong> Up to 3 years after conclusion.</p>
+
+        <h2>4. Recipients and processors</h2>
+
+        <h3>4.1 Supabase (backend, database, authentication, file storage)</h3>
+        <p>Supabase, Inc. (Singapore). All data stored exclusively in EU data centre Stockholm (Sweden). Encryption at rest and in transit (TLS). Row Level Security on all relevant tables. DPA with Standard Contractual Clauses (Art. 46 GDPR) in place.</p>
+        <p><strong>Data processed:</strong> all account data, spots, reviews, check-ins, likes, friendships, comments, photo uploads, connection and authentication data.</p>
+
+        <h3>4.2 Brevo (transactional emails)</h3>
+        <p>Sendinblue SAS (Brevo), Paris, France. EU servers. Used exclusively for transactional system emails (registration confirmation, password reset, security notifications). No marketing emails. DPA in place. <strong>Legal basis:</strong> Art. 6(1)(b) GDPR.</p>
+
+        <h3>4.3 App store operators (Apple, Google)</h3>
+        <p>Apple and Google process data under their own responsibility on app download. We have no influence on this. Apple Inc. (Cupertino, CA, USA); Google Ireland Limited (Dublin, Ireland).</p>
+
+        <h3>4.4 Maps (OpenStreetMap / MapLibre)</h3>
+        <p>Map content is delivered by the OpenStreetMap Foundation server in the United Kingdom (EU adequacy decision, June 2021). "Open in Google Maps" redirects to the Google Maps app — Google then processes your data under its own responsibility.</p>
+
+        <h3>4.5 Open-Meteo (weather data / Sun Barometer)</h3>
+        <p>Open-Meteo GmbH, Zurich, Switzerland (EU adequacy decision, Art. 45 GDPR). Only coarsely rounded coordinates (~1 km) are transmitted. Server-side cache max. 1 hour.</p>
+
+        <h3>4.6 Other</h3>
+        <p>We use no analytics, crash reporting or advertising services. No data is transmitted to ad networks or tracking providers.</p>
+
+        <h2>5. Transfers to third countries</h2>
+        <ul>
+          <li><strong>USA:</strong> Apple App Store — EU-U.S. Data Privacy Framework and/or Standard Contractual Clauses</li>
+          <li><strong>Switzerland:</strong> Open-Meteo — EU adequacy decision (Art. 45 GDPR)</li>
+          <li><strong>United Kingdom:</strong> OpenStreetMap Foundation — EU adequacy decision (Art. 45 GDPR)</li>
+        </ul>
+        <p>Supabase and Brevo process data exclusively within the EU, so no third-country transfer applies.</p>
+
+        <h2>6. Storage periods overview</h2>
+        <table>
           <thead><tr><th>Data category</th><th>Storage period</th></tr></thead>
           <tbody>
-            <tr><td>Account data (email, name, password hash)</td><td>Until account deletion</td></tr>                                                                                                      
-            <tr><td>Profile picture and optional info</td><td>Until account deletion</td></tr>
-            <tr><td>Location data (local &amp; server cache)</td><td>Max. 1 hour, then overwritten</td></tr>                                                                                                
-            <tr><td>Visited spots and visit history</td><td>Until account deletion</td></tr>
-            <tr><td>Reviews and comments</td><td>Until deletion; retained anonymised after</td></tr>                                                                                                        
-            <tr><td>Uploaded photos</td><td>Until photo or account deleted</td></tr>                                                                                                                        
-            <tr><td>Push token</td><td>While app installed and push active</td></tr>                                                                                                                        
-            <tr><td>Server logs (incl. IP)</td><td>Max. 7 days</td></tr>                                                                                                                                    
-            <tr><td>Support emails</td><td>3 years after conclusion</td></tr>                                                                                                                               
-          </tbody>                                                                                                                                                                                          
-        </table>                                                                                                                                                                                            
-      </section>                                                                                                                                                                                            
-                                                            
-      <section>                                                                                                                                                                                             
-        <h2>7. Your rights</h2>                             
+            <tr><td>Account data (email, display name, password hash)</td><td>Until account deletion</td></tr>
+            <tr><td>Profile picture, bio, favourite spot</td><td>Until account deletion</td></tr>
+            <tr><td>Live location data (device)</td><td>Not stored permanently</td></tr>
+            <tr><td>Rounded weather cache (server)</td><td>Max. 1 hour</td></tr>
+            <tr><td>Reviews (stars, text, photos, date)</td><td>Until account deletion; then anonymised</td></tr>
+            <tr><td>Check-ins</td><td>45 minutes after sun event</td></tr>
+            <tr><td>Spot upvotes / downvotes</td><td>Until account deletion</td></tr>
+            <tr><td>Uploaded photos (spot, review, profile)</td><td>Until photo or account deletion</td></tr>
+            <tr><td>Saved spots (bookmarks)</td><td>Until account deletion</td></tr>
+            <tr><td>Friendships</td><td>Until ended or account deletion</td></tr>
+            <tr><td>Activity Feed comments</td><td>Until deleted or account deletion</td></tr>
+            <tr><td>Server log files (incl. IP)</td><td>Max. 7 days</td></tr>
+            <tr><td>Support emails</td><td>3 years after conclusion</td></tr>
+          </tbody>
+        </table>
+
+        <h2>7. Your rights as a data subject</h2>
         <ul>
-          <li><strong>Access</strong> (Art. 15) – request info on what we process. Email us.</li>                                                                                                           
-          <li><strong>Rectification</strong> (Art. 16) – correct inaccurate data.</li>
-          <li><strong>Erasure</strong> (Art. 17) – delete your data. Also in-app: Profile → Menu → Delete account.</li>                                                                                     
-          <li><strong>Restriction</strong> (Art. 18) – restrict processing.</li>
-          <li><strong>Portability</strong> (Art. 20) – receive your data in JSON format via email.</li>                                                                                                     
-          <li><strong>Objection</strong> (Art. 21) – object to processing based on legitimate interests.</li>                                                                                               
-          <li><strong>Withdrawal</strong> (Art. 7(3)) – withdraw consent at any time without affecting prior lawful processing.</li>                                                                        
-        </ul>                                                                                                                                                                                               
-        <p>An informal email to <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a> is sufficient.</p>                                                                                         
-                                                                                                                                                                                                            
-        <h3>Supervisory authority</h3>                                                                                                                                                                      
-        <div class="contact-card">                                                                                                                                                                          
-          <strong>The Hessian Commissioner for Data Protection and Freedom of Information</strong>                                                                                                          
-          Postfach 3163 · 65021 Wiesbaden · Germany<br>                                                                                                                                                     
-          <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a>                                                                                                  
-        </div>                                              
-      </section>                                                                                                                                                                                            
-   
-      <section>                                                                                                                                                                                             
-        <h2>8. Further information</h2>                     
-                                                                                                                                                                                                            
-        <h3>Obligation to provide data</h3>                 
-        <p>Email, display name, password and age confirmation are required. All other data is voluntary.</p>
-                                                                                                                                                                                                            
-        <h3>Automated decision-making</h3>
-        <p>No automated decision-making under Art. 22 GDPR. The badge system is motivation-based with no legal effect.</p>                                                                                  
-                                                                                                                                                                                                            
-        <h3>Data security</h3>                
-        <ul>                                                                                                                                                                                                
-          <li>HTTPS/TLS encryption for all data</li>                                                                                                                                                        
-          <li>Database encryption at rest</li>                                                                                                                                                              
-          <li>Passwords as hash only (bcrypt/scrypt, Supabase Auth)</li>                                                                                                                                    
-          <li>Row Level Security at database level</li>                                                                                                                                                     
-          <li>Two-factor authentication for admin access</li>
-          <li>Daily automatic backups</li>    
-          <li>Regular library updates</li>                                                                                                                                                                  
+          <li><strong>Right of access</strong> (Art. 15 GDPR)</li>
+          <li><strong>Right to rectification</strong> (Art. 16 GDPR)</li>
+          <li><strong>Right to erasure</strong> (Art. 17 GDPR) — also in-app: Profile → Menu → Delete account</li>
+          <li><strong>Right to restriction</strong> (Art. 18 GDPR)</li>
+          <li><strong>Right to data portability</strong> (Art. 20 GDPR)</li>
+          <li><strong>Right to object</strong> (Art. 21 GDPR)</li>
+          <li><strong>Right to withdraw consent</strong> (Art. 7(3) GDPR) — location, camera, photo gallery revocable in device settings</li>
         </ul>
-                                                                                                                                                                                                            
-        <h3>Protection of minors</h3>                       
-        <p>Sunchaser is for users aged 16+. Age confirmed at registration. Accounts under 16 deleted immediately upon discovery. Legal guardians: <a                                                        
-  href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</p>
-                                                                                                                                                                                                            
-        <h3>Changes to this policy</h3>
-        <p>Current version always available in-app (Profile → Menu → Privacy) and at <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a>. Material changes        
-  communicated on next app launch.</p>                      
-      </section>                                                                                                                                                                                            
-                                                            
-    </div><!-- /lang-en -->                                                                                                                                                                                 
-  </div><!-- /tab-datenschutz -->
-                                                                                                                                                                                                            
-                                                            
-  <!-- ══════════════════════════════     
-       NUTZUNGSBEDINGUNGEN
-  ══════════════════════════════════ -->                                                                                                                                                                    
-  <div id="tab-nutzung" class="tab-panel">    
-    <section>                                                                                                                                                                                               
-      <h2>Nutzungsbedingungen</h2>                          
-      <p style="margin-bottom:16px;font-size:13px;color:rgba(58,31,10,0.45);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;">Stand: Mai 2026</p>                                             
-      <p>Diese Nutzungsbedingungen regeln die Nutzung der mobilen App „Sunchaser", betrieben von Daniel Nakouzi, Geschäftsbezeichnung Sunchaser, Mörfelder Landstraße 88, 60598 Frankfurt am Main.</p>
-                                                                                                                                                                                                            
-      <h3>1. Geltungsbereich</h3>                           
-      <p>Mit der Registrierung stimmst du diesen Bedingungen zu. Ohne Zustimmung ist die Nutzung nicht gestattet.</p>                                                                                       
-                                                                                                                                                                                                            
-      <h3>2. Leistungsbeschreibung</h3>                                                                                                                                                                     
-      <p>Sunchaser ist eine Community-App für Sonnenauf- und -untergangs-Spots mit diesen Kernfunktionen:</p>                                                                                               
-      <ul>                                                                                                                                                                                                  
-        <li>Anzeige und Bewertung von Spots</li>            
-        <li>Foto-Uploads und Community-Bewertungen</li>                                                                                                                                                     
-        <li>Badge- und Gamification-System</li>                                                                                                                                                             
-        <li>Freunde-Funktion und Aktivitätsfeed</li>
-        <li>Push-Benachrichtigungen und standortbasierte Suche</li>                                                                                                                                         
-      </ul>                                                                                                                                                                                                 
-      <p>Wir behalten uns vor, Funktionen zu ändern oder einzustellen. Kein Anspruch auf bestimmte Funktionen.</p>                                                                                          
-                                                                                                                                                                                                            
-      <h3>3. Registrierung und Nutzerkonto</h3>                                                                                                                                                             
-      <p>Wahrheitsgemäße Angaben, Mindestalter 16 Jahre, gültige verifizierte E-Mail-Adresse. Zugangsdaten geheim halten. Pro Person nur ein Konto erlaubt. Bei unbefugter Nutzung umgehend an <a 
-  href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a> melden.</p>                                                                                                                                 
-                                                                                                                                                                                                            
-      <h3>4. Verbotene Inhalte und Verhaltensweisen</h3>                                                                                                                                                    
-      <ul>                                                                                                                                                                                                  
-        <li>Rechtswidrige, beleidigende, diskriminierende, obszöne oder gewaltverherrlichende Inhalte</li>
-        <li>Fotos erkennbarer Personen ohne Einwilligung</li>                                                                                                                                               
-        <li>Inhalte, an denen keine Nutzungsrechte bestehen (Urheberrechtsverstöße)</li>
-        <li>Falsche oder irreführende Bewertungen oder Spot-Informationen</li>                                                                                                                              
-        <li>Belästigung, Bedrohung oder Stalking anderer Nutzer</li>                                                                                                                                        
-        <li>Spam, ungenehmigte Werbung oder kommerzielle Nutzung</li>                                                                                                                                       
-        <li>Umgehung technischer Schutzmaßnahmen oder Einsatz von Bots</li>                                                                                                                                 
-      </ul>                                                                                                                                                                                                 
-      <p>Verstöße können zur sofortigen Kontosperrung oder -löschung führen.</p>                                                                                                                            
-                                                                                                                                                                                                            
-      <h3>5. Nutzerinhalte und Rechteeinräumung</h3>                                                                                                                                                        
-      <p>Du behältst das Eigentum an deinen Inhalten. Mit dem Hochladen räumst du uns ein nicht-exklusives weltweites Recht zur Nutzung im App-Betrieb ein. Du versicherst, die erforderlichen Rechte zu
-  besitzen. Regelwidrige Inhalte können ohne Vorankündigung entfernt werden.</p>                                                                                                                            
-                                                                                                                                                                                                            
-      <h3>6. Meldefunktion</h3>                                                                                                                                                                             
-      <p>Regelwidrige Inhalte über die In-App-Meldefunktion melden. Wir prüfen und ergreifen ggf. Maßnahmen.</p>                                                                                            
-                                                            
-      <h3>7. Verfügbarkeit</h3>                                                                                                                                                                             
-      <p>Kein Anspruch auf ununterbrochene Verfügbarkeit. Wartung, Störungen oder höhere Gewalt können zu Einschränkungen führen.</p>
-                                                                                                                                                                                                            
-      <h3>8. Haftungsausschluss</h3>      
-      <p>Unbeschränkte Haftung nur bei Vorsatz, grober Fahrlässigkeit und Personenschäden. Bei leichter Fahrlässigkeit nur bei Verletzung wesentlicher Vertragspflichten, begrenzt auf den vorhersehbaren   
-  Schaden. Keine Haftung für Richtigkeit von Community-Inhalten, unsichere Zugangsdaten oder Drittanbieter-Ausfälle.</p>                                                                                    
-                                          
-      <h3>9. Kündigung und Kontolöschung</h3>                                                                                                                                                               
-      <p>Konto jederzeit selbst löschen: Profil → Menü → Delete account. Wir können Konten bei schwerwiegenden Verstößen sperren oder löschen.</p>                                                          
-                                              
-      <h3>10. Geistiges Eigentum</h3>                                                                                                                                                                       
-      <p>App, Design, Code und eigene Inhalte sind urheberrechtlich geschützt. Nutzung nur mit schriftlicher Genehmigung.</p>
-                                                                                                                                                                                                            
-      <h3>11. Änderungen der Nutzungsbedingungen</h3>       
-      <p>Änderungen werden beim nächsten App-Start mitgeteilt. Weitere Nutzung gilt als Zustimmung.</p>                                                                                                     
-                                                                                                                                                                                                            
-      <h3>12. Anwendbares Recht und Gerichtsstand</h3>
-      <p>Deutsches Recht. Zwingende Verbraucherschutzvorschriften des Aufenthaltsstaats bleiben unberührt. Gerichtsstand für Unternehmer: Frankfurt am Main.</p>                                            
-                                                                                                                                                                                                            
-      <h3>13. Kontakt</h3>                                                                                                                                                                                  
-      <div class="contact-card">                                                                                                                                                                            
-        Daniel Nakouzi · Sunchaser<br>                                                                                                                                                                      
-        Mörfelder Landstraße 88 · 60598 Frankfurt am Main<br>
-        E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>                                                                                                                            
-      </div>                                                
-    </section>                                                                                                                                                                                              
+        <p>An informal email to <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a> is sufficient.</p>
+
+        <h2>8. Right to lodge a complaint</h2>
+        <div class="contact-block">
+          <strong>The Hessian Commissioner for Data Protection and Freedom of Information</strong><br>
+          Postfach 3163<br>
+          65021 Wiesbaden<br>
+          Germany<br>
+          <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a>
+        </div>
+
+        <h2>9. Obligation to provide data</h2>
+        <p>Email, display name, password and age confirmation are required to use the app. All other data (profile picture, bio, location, camera, gallery) is voluntary.</p>
+
+        <h2>10. Automated decision-making and profiling</h2>
+        <p>We use no automated decision-making under Art. 22 GDPR. The badge system is purely motivation-based with no legal or similarly significant effect. There are no streak counters.</p>
+
+        <h2>11. Data security</h2>
+        <ul>
+          <li>All data transmitted via HTTPS / TLS</li>
+          <li>Database encrypted at rest (Supabase)</li>
+          <li>Passwords stored only as hash (bcrypt/scrypt via Supabase Auth)</li>
+          <li>Row Level Security at database level</li>
+          <li>Two-factor authentication for all administrative access</li>
+          <li>Daily automatic backups by Supabase</li>
+          <li>Regular updates of software libraries</li>
+          <li>EXIF stripping of all uploaded photos before transmission</li>
+        </ul>
+
+        <h2>12. Protection of minors</h2>
+        <p>Sunchaser is intended for users aged 16 and over. Accounts created by users under 16 will be deleted immediately upon discovery. Legal guardians may contact <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</p>
+
+        <h2>13. Changes to this privacy policy</h2>
+        <p>We reserve the right to update this policy when the legal situation, our processing or app features change. The current version is always available via the app (Profile → Menu → Legal &amp; Privacy) and at <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a>. Material changes will be communicated on the next app launch.</p>
+
+        <div class="footer-meta">Last update: May 2026 · Daniel Nakouzi · Sunchaser</div>
+      </div>
+    </div>
   </div>
-                                                                                                                                                                                                            
-  </div><!-- /container -->                                 
-                                                                                                                                                                                                            
-  <footer>                                                  
-    <p>© 2026 Sunchaser · Daniel Nakouzi · <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a></p>
-  </footer>                                   
-                                                                                                                                                                                                            
-  <script>
-  function showTab(name, btn) {                                                                                                                                                                             
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));                                                                                                                       
-    document.getElementById('tab-' + name).classList.add('active');
-    btn.classList.add('active');                                                                                                                                                                            
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    history.replaceState(null, '', '#' + name);                                                                                                                                                             
-  }                                                                                                                                                                                                         
-  function setLang(lang) {
-    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));                                                                                                                
-    document.getElementById('lang-' + lang).classList.add('active');
-    document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));                                                                                                            
-    document.getElementById('btn-' + lang).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });                                                                                                                                                        
-  }                                       
-  (function () {                                                                                                                                                                                            
-    const hash = window.location.hash.replace('#', '');                                                                                                                                                     
-    const tabs = ['impressum', 'datenschutz', 'nutzung'];                                                                                                                                                   
-    if (tabs.includes(hash)) {                                                                                                                                                                              
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('tab-' + hash).classList.add('active');                                                                                                                                       
-      document.querySelectorAll('.tab-btn')[tabs.indexOf(hash)].classList.add('active');
-    }                                                                                                                                                                                                       
-    if ((navigator.language || 'de').toLowerCase().startsWith('en')) setLang('en');
-  })();                                                                                                                                                                                                     
-  </script>                                                 
-  </body>                                                                                                                                                                                                   
-  </html>    
+
+  <!-- ═══════════════ NUTZUNGSBEDINGUNGEN ═══════════════ -->
+  <div id="tab-nutzung" class="tab-panel">
+    <div class="card">
+      <h1>Nutzungsbedingungen</h1>
+      <p class="page-meta">Stand: Mai 2026</p>
+
+      <p>Diese Nutzungsbedingungen regeln die Nutzung der mobilen App „Sunchaser" (iOS und Android), die von Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main (im Folgenden „Anbieter") betrieben wird. Mit der Registrierung akzeptierst du diese Bedingungen vollständig und verbindlich.</p>
+
+      <h2>1. Geltungsbereich</h2>
+      <p>Diese Bedingungen gelten für alle Nutzer der Sunchaser-App. Maßgeblich ist die zum Zeitpunkt der Nutzung gültige Fassung. Abweichende Bedingungen werden nur anerkannt, wenn der Anbieter diesen ausdrücklich schriftlich zugestimmt hat.</p>
+
+      <h2>2. Registrierung und Nutzerkonto</h2>
+      <p>Die Nutzung der App erfordert ein Nutzerkonto. Du verpflichtest dich, wahrheitsgemäße Angaben zu machen und diese aktuell zu halten. Du bist für die Geheimhaltung deiner Zugangsdaten verantwortlich.</p>
+      <ul>
+        <li>Du musst mindestens 16 Jahre alt sein.</li>
+        <li>Pro Person ist nur ein Konto zulässig.</li>
+        <li>Die Zugangsdaten sind nicht übertragbar.</li>
+        <li>Missbrauch deines Kontos meldest du unverzüglich an <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</li>
+      </ul>
+
+      <h2>3. Nutzungsrechte</h2>
+      <p>Der Anbieter räumt dir ein einfaches, nicht übertragbares, widerrufliches Recht zur privaten, nicht kommerziellen Nutzung der App ein. Alle Rechte an der App verbleiben beim Anbieter. Du darfst die App nicht kopieren, dekompilieren oder für kommerzielle Zwecke ohne schriftliche Genehmigung nutzen.</p>
+
+      <h2>4. Pflichten der Nutzer</h2>
+      <p>Du verpflichtest dich, die App nur im Einklang mit diesen Bedingungen und geltendem Recht zu nutzen. Insbesondere:</p>
+      <ul>
+        <li>Lade keine rechtswidrigen, beleidigenden, diskriminierenden oder irreführenden Inhalte hoch.</li>
+        <li>Beachte Urheber- und Persönlichkeitsrechte Dritter.</li>
+        <li>Umgehe keine technischen Schutzmaßnahmen der App.</li>
+        <li>Störe den Betrieb nicht durch Bots oder automatisierte Abfragen.</li>
+      </ul>
+
+      <h2>5. Nutzererzeugte Inhalte</h2>
+      <p>Du kannst Spots erstellen sowie Fotos, Sternebewertungen, Kommentare und Check-ins beisteuern (nachfolgend „Nutzerinhalte"). Dabei gilt:</p>
+      <ul>
+        <li>Du behältst alle Urheberrechte an deinen Inhalten.</li>
+        <li>Du räumst dem Anbieter eine kostenlose, weltweite, nicht-exklusive Lizenz ein, deine Inhalte zum Betrieb und zur Darstellung der App gegenüber anderen Nutzern zu verwenden.</li>
+        <li>Du garantierst, dass du zur Veröffentlichung dieser Inhalte berechtigt bist und keine Rechte Dritter verletzt werden.</li>
+        <li>Auf Fotos dürfen keine erkennbaren Personen ohne deren Einwilligung abgebildet sein.</li>
+        <li>Du stellst den Anbieter von allen Ansprüchen Dritter frei, die aus einer Verletzung dieser Garantie entstehen.</li>
+      </ul>
+      <p>Der Anbieter kann Nutzerinhalte entfernen, die gegen diese Bedingungen oder geltendes Recht verstoßen.</p>
+
+      <h2>6. Verbotene Handlungen</h2>
+      <ul>
+        <li>Hochladen von Inhalten, die Gewalt, Hass, Diskriminierung oder illegale Aktivitäten fördern</li>
+        <li>Belästigung, Bedrohung oder Schädigung anderer Nutzer</li>
+        <li>Erstellung von Fake-Spots, gefälschten Bewertungen oder manipulierten Check-ins</li>
+        <li>Kommerzielle Werbung ohne ausdrückliche Genehmigung</li>
+        <li>Spam, Phishing oder Manipulation anderer Nutzer</li>
+        <li>Unbefugter Zugriff auf Systeme oder Daten des Anbieters</li>
+      </ul>
+
+      <h2>7. Melde- und Moderationssystem</h2>
+      <p>Unangemessene Inhalte und Kommentare können über die in der App integrierte Meldefunktion gemeldet werden. Der Anbieter prüft Meldungen und ergreift angemessene Maßnahmen, einschließlich Entfernung von Inhalten oder Sperrung von Konten. Es besteht kein Anspruch auf eine bestimmte Reaktionszeit.</p>
+
+      <h2>8. Abzeichen-System</h2>
+      <p>Das Abzeichen-System (35 Abzeichen in 5 Kategorien) ist rein motivationsbasiert. Es besteht kein Anspruch auf Auszahlung, Gegenleistung oder rechtliche Wirkung. Es gibt keine Streak-Mechanik. Der Anbieter behält sich vor, das System jederzeit zu ändern oder einzustellen.</p>
+
+      <h2>9. Verfügbarkeit der App</h2>
+      <p>Der Anbieter strebt eine hohe Verfügbarkeit an, kann diese jedoch nicht garantieren. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen. Ein Anspruch auf eine bestimmte Verfügbarkeit besteht nicht.</p>
+
+      <h2>10. Haftung</h2>
+      <p>Der Anbieter haftet unbeschränkt für Vorsatz, grobe Fahrlässigkeit sowie für Schäden aus der Verletzung von Leben, Körper oder Gesundheit. Für leichte Fahrlässigkeit haftet der Anbieter nur bei Verletzung wesentlicher Vertragspflichten, begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Für Nutzerinhalte Dritter sowie externe Links (z. B. Google Maps) übernimmt der Anbieter keine Haftung.</p>
+
+      <h2>11. Konto-Sperrung und -Löschung</h2>
+      <p>Der Anbieter kann ein Nutzerkonto bei Verstößen vorübergehend sperren oder dauerhaft löschen. Der Nutzer kann sein Konto jederzeit selbst löschen: Profil → Menü → Delete account. Mit der Kontolöschung erlischt die Nutzungslizenz.</p>
+
+      <h2>12. Änderungen der Nutzungsbedingungen</h2>
+      <p>Der Anbieter behält sich vor, diese Bedingungen jederzeit zu ändern. Wesentliche Änderungen werden beim nächsten App-Start angekündigt. Die weitere Nutzung gilt als Zustimmung. Die aktuelle Fassung ist stets unter <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a> abrufbar.</p>
+
+      <h2>13. Anwendbares Recht und Gerichtsstand</h2>
+      <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher gelten die zwingenden Schutzvorschriften des Landes ihres gewöhnlichen Aufenthalts. Gerichtsstand für Kaufleute und juristische Personen des öffentlichen Rechts ist Frankfurt am Main.</p>
+
+      <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function showTab(tab) {
+  document.querySelectorAll('.tab-panel').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('tab-btn-' + tab).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  document.getElementById('lang-btn-' + lang).classList.add('active');
+  document.documentElement.lang = lang;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+(function() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash === 'datenschutz' || hash === 'nutzung' || hash === 'impressum') { showTab(hash); return; }
+  if (hash === 'en') { showTab('datenschutz'); setLang('en'); }
+})();
+</script>
+</body>
+</html>
