@@ -261,52 +261,102 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
 
   <!-- ═══════════════ IMPRESSUM ═══════════════ -->
   <div id="tab-impressum" class="tab-panel active">
-    <div class="card">
-      <h1>Impressum</h1>
-      <p class="page-meta">Angaben gemäß § 5 TMG</p>
-
-      <h2>Anbieter</h2>
-      <div class="contact-block">
-        <strong>Daniel Nakouzi</strong><br>
-        Mörfelder Landstraße 88<br>
-        60598 Frankfurt am Main<br>
-        Deutschland<br><br>
-                E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
+    <div class="lang-bar">
+      <div class="lang-switch">
+        <button id="im-btn-de" class="active" onclick="setLang('im','de')">Deutsch</button>
+        <button id="im-btn-en" onclick="setLang('im','en')">English</button>
       </div>
+    </div>
 
-      <h2>Vertretungsberechtigt</h2>
-      <p>Daniel Nakouzi (Einzelunternehmer)</p>
+    <!-- ─── DEUTSCH ─── -->
+    <div id="im-de" class="lang-section active">
+      <div class="card">
+        <h1>Impressum</h1>
+        <p class="page-meta">Angaben gemäß § 5 TMG</p>
 
-      <h2>Verantwortlich für den Inhalt</h2>
-      <p>Gemäß § 18 Abs. 2 MStV:<br>Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main</p>
+        <h2>Anbieter</h2>
+        <div class="contact-block">
+          <strong>Daniel Nakouzi</strong><br>
+          Mörfelder Landstraße 88<br>
+          60598 Frankfurt am Main<br>
+          Deutschland<br><br>
+          E-Mail: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
+        </div>
 
-      <h2>Umsatzsteuer-Identifikationsnummer</h2>
-      <p>Eine USt-IdNr. liegt derzeit nicht vor (Antrag gestellt). Sie wird nach Erteilung hier ergänzt.</p>
+        <h2>Vertretungsberechtigt</h2>
+        <p>Daniel Nakouzi (Einzelunternehmer)</p>
 
-      <h2>Plattform der EU-Kommission zur Online-Streitbeilegung</h2>
-      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <h2>Verantwortlich für den Inhalt</h2>
+        <p>Gemäß § 18 Abs. 2 MStV:<br>Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main</p>
 
-      <h2>Haftungshinweis</h2>
-      <p>Die Inhalte unserer App wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich.</p>
+        <h2>Umsatzsteuer-Identifikationsnummer</h2>
+        <p>Eine USt-IdNr. liegt derzeit nicht vor (Antrag gestellt). Sie wird nach Erteilung hier ergänzt.</p>
 
-      <h2>Bildnachweise</h2>
-      <p>Alle in der App verwendeten Fotos wurden entweder von Nutzern hochgeladen oder stammen aus lizenzfreien Quellen. Nutzer sind selbst für die Rechtmäßigkeit hochgeladener Bilder verantwortlich.</p>
+        <h2>Plattform der EU-Kommission zur Online-Streitbeilegung</h2>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
-      <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+        <h2>Haftungshinweis</h2>
+        <p>Die Inhalte unserer App wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich.</p>
+
+        <h2>Bildnachweise</h2>
+        <p>Alle in der App verwendeten Fotos wurden entweder von Nutzern hochgeladen oder stammen aus lizenzfreien Quellen. Nutzer sind selbst für die Rechtmäßigkeit hochgeladener Bilder verantwortlich.</p>
+
+        <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+      </div>
+    </div>
+
+    <!-- ─── ENGLISH ─── -->
+    <div id="im-en" class="lang-section">
+      <div class="card">
+        <h1>Legal Notice</h1>
+        <p class="page-meta">Required under § 5 German Telemedia Act (TMG)</p>
+
+        <p>This Legal Notice (<em>Impressum</em>) is a mandatory disclosure required under German law (§ 5 TMG) for all commercial online services and apps operated from Germany.</p>
+
+        <h2>Service Provider</h2>
+        <div class="contact-block">
+          <strong>Daniel Nakouzi</strong><br>
+          Trading as: Sunchaser<br>
+          Mörfelder Landstraße 88<br>
+          60598 Frankfurt am Main<br>
+          Germany<br><br>
+          Email: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
+        </div>
+
+        <h2>Authorised representative</h2>
+        <p>Daniel Nakouzi (sole proprietor)</p>
+
+        <h2>Responsible for content</h2>
+        <p>Pursuant to § 18(2) MStV (German Interstate Media Treaty):<br>Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main, Germany</p>
+
+        <h2>VAT identification number</h2>
+        <p>A VAT ID is not yet available (application submitted). It will be added here once issued.</p>
+
+        <h2>EU Online Dispute Resolution</h2>
+        <p>The European Commission provides an online dispute resolution (ODR) platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+        <h2>Liability</h2>
+        <p>The content of our app has been prepared with the greatest care. However, we cannot guarantee the accuracy, completeness or timeliness of the content. As a service provider we are responsible for our own content under general law pursuant to § 7(1) TMG.</p>
+
+        <h2>Image credits</h2>
+        <p>All photos used in the app have either been uploaded by users or sourced from royalty-free sources. Users are personally responsible for the legality of images they upload.</p>
+
+        <div class="footer-meta">Last update: May 2026 · Daniel Nakouzi · Sunchaser</div>
+      </div>
     </div>
   </div>
 
   <!-- ═══════════════ DATENSCHUTZ ═══════════════ -->
   <div id="tab-datenschutz" class="tab-panel">
     <div class="lang-bar">
-      <div class="lang-switch" role="tablist">
-        <button id="lang-btn-de" class="active" onclick="setLang('de')">Deutsch</button>
-        <button id="lang-btn-en" onclick="setLang('en')">English</button>
+      <div class="lang-switch">
+        <button id="ds-btn-de" class="active" onclick="setLang('ds','de')">Deutsch</button>
+        <button id="ds-btn-en" onclick="setLang('ds','en')">English</button>
       </div>
     </div>
 
     <!-- ─── DEUTSCH ─── -->
-    <div id="lang-de" class="lang-section active">
+    <div id="ds-de" class="lang-section active">
       <div class="card">
         <h1>Datenschutzerklärung</h1>
         <p class="page-meta">Stand: Mai 2026</p>
@@ -388,7 +438,7 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
           <li>Dein Anzeigename und deine Nutzer-ID werden der Bewertung zugeordnet</li>
         </ul>
         <p>Bewertungen sind öffentlich sichtbar mit deinem Anzeigename und Profilbild.</p>
-        <p><strong>Check-ins (temporäre Anwesenheitsmeldungen):</strong> Mit einem Klick auf „Ich bin hier" kannst du einen Check-in setzen. Dabei wird gespeichert: Nutzer-ID, Spot-ID, Ereignistyp (Sonnenauf- oder -untergang), Ablaufzeit. Check-ins sind <strong>temporäre Datensätze</strong> – sie verfallen automatisch 45 Minuten nach dem jeweiligen Sonnen-Ereignis und werden danach nicht weiterverarbeitet. Während der Laufzeit sind Check-ins für Freunde im Activity Feed sichtbar.</p>
+        <p><strong>Check-ins (Teilnahme-Absichtsmeldungen):</strong> Du kannst signalisieren, dass du zum nächsten Sonnen-Ereignis (Sonnenauf- oder -untergang) an einem bestimmten Spot dabei sein wirst. Der Check-in bleibt ab dem Zeitpunkt der Anmeldung aktiv und verfällt automatisch <strong>45 Minuten nach dem jeweiligen Sonnen-Ereignis</strong> dieses Tages. Danach wird er nicht weiterverarbeitet. Gespeichert werden: Nutzer-ID, Spot-ID, Ereignistyp (Sonnenauf- oder -untergang), Ablaufzeit. Während der Laufzeit sind Check-ins für andere Nutzer auf dem Today-Tab sowie für Freunde im Activity Feed sichtbar.</p>
         <p><strong>Spot-Bewertungen (Upvote/Downvote):</strong> Du kannst Spots mit einem Upvote oder Downvote bewerten. Gespeichert werden: Nutzer-ID, Spot-ID, Stimmtyp (up/down). Diese Daten sind nicht direkt anderen Nutzern zugeordnet sichtbar; es wird lediglich die Gesamtbilanz angezeigt.</p>
         <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse aller Nutzer an dauerhaften, qualitätsvollen Bewertungen).</p>
         <p><strong>Speicherdauer:</strong> Bewertungen bis zur Kontolöschung (danach anonymisiert, Art. 17 Abs. 3 lit. e DSGVO analog). Check-ins 45 Minuten nach dem Sonnen-Ereignis. Upvotes/Downvotes bis zur Kontolöschung.</p>
@@ -411,7 +461,7 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
         <ul>
           <li>Profilname, Profilbild, Kurzbiografie, Lieblingsspot</li>
           <li>Erstellte Spots und abgegebene Bewertungen (inkl. Kommentar, Sternebewertung, Fotos, Besuchsdatum)</li>
-          <li>Aktive Check-ins (für max. 45 Minuten nach Sonnen-Ereignis)</li>
+          <li>Aktive Check-ins (Teilnahmeabsicht für das nächste Sonnen-Ereignis, sichtbar bis 45 Minuten nach dem Ereignis)</li>
           <li>Spots, die der Freund geliked hat</li>
           <li>Kommentare, die der Freund im Activity Feed abgegeben hat</li>
           <li>Abzeichen-Stand und Anzahl besuchter Spots</li>
@@ -454,29 +504,29 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
         <h2>4. Empfänger und Auftragsverarbeiter</h2>
 
         <h3>4.1 Supabase (Backend, Datenbank, Authentifizierung, Dateispeicher)</h3>
-        <p><strong>Anbieter:</strong> Supabase, Inc., Singapur. Alle Daten werden ausschließlich im EU-Rechenzentrum Stockholm (Schweden) gespeichert. Verschlüsselung at rest und in transit (TLS). Row Level Security ist auf allen relevanten Datenbanktabellen aktiv, sodass Nutzer nur auf ihre eigenen Daten zugreifen können. DPA mit Standardvertragsklauseln (SCC) nach Art. 46 DSGVO geschlossen.</p>
+        <p><strong>Anbieter:</strong> Supabase, Inc., Singapur. Alle Daten werden ausschließlich im EU-Rechenzentrum Stockholm (Schweden) gespeichert. Verschlüsselung at rest und in transit (TLS). Row Level Security ist auf allen relevanten Datenbanktabellen aktiv. DPA mit Standardvertragsklauseln (SCC) nach Art. 46 DSGVO geschlossen.</p>
         <p><strong>Verarbeitete Daten:</strong> Kontodaten, Profilinfos, Spots, Bewertungen, Check-ins, Likes, Freundschaften, Kommentare, Foto-Uploads, Verbindungs- und Authentifizierungsdaten.</p>
 
         <h3>4.2 Brevo (transaktionale E-Mails)</h3>
-        <p><strong>Anbieter:</strong> Sendinblue SAS (Marke: Brevo), 106 Boulevard Haussmann, 75008 Paris, Frankreich. Server in der EU. Brevo wird ausschließlich für transaktionale System-E-Mails genutzt (Registrierungsbestätigung via Bestätigungslink, Passwort-Reset, Sicherheitsbenachrichtigungen). Kein Marketing-E-Mail-Versand.</p>
+        <p><strong>Anbieter:</strong> Sendinblue SAS (Marke: Brevo), 106 Boulevard Haussmann, 75008 Paris, Frankreich. Server in der EU. Brevo wird ausschließlich für transaktionale System-E-Mails genutzt (Registrierungsbestätigung, Passwort-Reset, Sicherheitsbenachrichtigungen). Kein Marketing-E-Mail-Versand.</p>
         <p><strong>Verarbeitete Daten:</strong> E-Mail-Adresse, Inhalt der System-E-Mail, Versandzeitpunkt.</p>
         <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. DPA mit Brevo geschlossen.</p>
 
         <h3>4.3 App-Store-Betreiber (Apple, Google)</h3>
-        <p>Beim Download und der Installation verarbeiten Apple (App Store) und Google (Play Store) eigenverantwortlich Daten wie App-Store-Kontodaten, Geräteinformationen und Download-Statistiken. Wir haben keinen Einfluss auf diese Verarbeitung.</p>
+        <p>Beim Download und der Installation verarbeiten Apple (App Store) und Google (Play Store) eigenverantwortlich Daten. Wir haben keinen Einfluss auf diese Verarbeitung.</p>
         <ul>
           <li>Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
           <li>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</li>
         </ul>
 
         <h3>4.4 Karten (OpenStreetMap / MapLibre)</h3>
-        <p>Für die Kartenansicht in der App werden OpenStreetMap-Daten über die MapLibre-Bibliothek verwendet. Der Karteninhalt wird vom OpenStreetMap-Foundation-Server in Großbritannien geliefert (EU-Angemessenheitsbeschluss vom Juni 2021). Beim Klick auf „In Google Maps öffnen" wirst du zur separaten Google-Maps-App weitergeleitet; deine Daten werden dann von Google eigenverantwortlich verarbeitet.</p>
+        <p>Für die Kartenansicht werden OpenStreetMap-Daten über die MapLibre-Bibliothek verwendet. Der Karteninhalt wird vom OpenStreetMap-Foundation-Server in Großbritannien geliefert (EU-Angemessenheitsbeschluss Juni 2021). Beim Klick auf „In Google Maps öffnen" wirst du zur Google-Maps-App weitergeleitet; deine Daten werden dann von Google eigenverantwortlich verarbeitet.</p>
 
         <h3>4.5 Open-Meteo (Wetterdaten / Sun Barometer)</h3>
-        <p><strong>Anbieter:</strong> Open-Meteo GmbH, Zürich, Schweiz (EU-Angemessenheitsbeschluss, Art. 45 DSGVO). An Open-Meteo werden ausschließlich grob gerundete Koordinaten (~1 km) übermittelt – keine direkt personenbeziehbaren Daten. Die zurückgelieferten Wetterdaten werden kurzfristig serverseitig zwischengespeichert (max. 1 Stunde) und danach verworfen.</p>
+        <p><strong>Anbieter:</strong> Open-Meteo GmbH, Zürich, Schweiz (EU-Angemessenheitsbeschluss, Art. 45 DSGVO). An Open-Meteo werden ausschließlich grob gerundete Koordinaten (~1 km) übermittelt. Wetter-Cache max. 1 Stunde, danach verworfen.</p>
 
         <h3>4.6 Sonstiges</h3>
-        <p>Wir setzen aktuell keine Analytics-, Crash-Reporting- oder Werbe-Dienstleister ein. Es findet keine Übermittlung von Daten an Werbenetzwerke, Tracking-Anbieter oder sonstige Dritte statt.</p>
+        <p>Wir setzen aktuell keine Analytics-, Crash-Reporting- oder Werbe-Dienstleister ein. Es findet keine Übermittlung von Daten an Werbenetzwerke oder Tracking-Anbieter statt.</p>
 
         <h2>5. Übermittlungen in Drittländer</h2>
         <ul>
@@ -558,7 +608,7 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
     </div>
 
     <!-- ─── ENGLISH ─── -->
-    <div id="lang-en" class="lang-section">
+    <div id="ds-en" class="lang-section">
       <div class="card">
         <h1>Privacy Policy</h1>
         <p class="page-meta">Last update: May 2026</p>
@@ -583,7 +633,6 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
           Mörfelder Landstraße 88<br>
           60598 Frankfurt am Main<br>
           Germany<br><br>
-          Phone: +49 152 02181588<br>
           Email: <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>
         </div>
         <p>No Data Protection Officer has been appointed as this is not required under § 38 BDSG for our sole proprietorship.</p>
@@ -630,7 +679,7 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
           <li>Your display name and user ID are associated with the review</li>
         </ul>
         <p>Reviews are publicly visible with your display name and profile picture.</p>
-        <p><strong>Check-ins (temporary presence signals):</strong> Tapping "I'm here" creates a check-in. Stored: user ID, spot ID, event type (sunrise/sunset), expiry timestamp. Check-ins are <strong>temporary records — they expire automatically 45 minutes after the sun event</strong> and are not processed further afterwards. During their lifetime, check-ins are visible to friends in the Activity Feed.</p>
+        <p><strong>Check-ins (intention-to-attend signals):</strong> You can signal that you plan to attend the next sun event (sunrise or sunset) at a specific spot. The check-in remains active from the moment you register it and expires automatically <strong>45 minutes after the respective sun event</strong> on that day. It is not processed further afterwards. Stored: user ID, spot ID, event type (sunrise/sunset), expiry timestamp. During their lifetime, check-ins are visible to other users on the Today tab and to friends in the Activity Feed.</p>
         <p><strong>Spot votes (Upvote/Downvote):</strong> You can upvote or downvote spots. Stored: user ID, spot ID, vote type (up/down). Only the aggregate score is displayed to other users, not who voted.</p>
         <p><strong>Legal basis:</strong> Art. 6(1)(b) + (f) GDPR. <strong>Storage period:</strong> Reviews until account deletion (then anonymised, Art. 17(3)(e) GDPR analogous). Check-ins 45 minutes after sun event. Votes until account deletion.</p>
 
@@ -651,7 +700,7 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
         <ul>
           <li>Profile name, picture, bio and favourite spot</li>
           <li>Created spots and submitted reviews (including comment, star rating, photos, visit date)</li>
-          <li>Active check-ins (visible for max. 45 minutes after sun event)</li>
+          <li>Active check-ins (intention to attend the next sun event, visible until 45 minutes after the event)</li>
           <li>Spots the friend has liked</li>
           <li>Comments the friend has posted in the Activity Feed</li>
           <li>Badge status and number of spots visited</li>
@@ -693,7 +742,7 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
         <p>Sendinblue SAS (Brevo), Paris, France. EU servers. Used exclusively for transactional system emails (registration confirmation, password reset, security notifications). No marketing emails. DPA in place. <strong>Legal basis:</strong> Art. 6(1)(b) GDPR.</p>
 
         <h3>4.3 App store operators (Apple, Google)</h3>
-        <p>Apple and Google process data under their own responsibility on app download. We have no influence on this. Apple Inc. (Cupertino, CA, USA); Google Ireland Limited (Dublin, Ireland).</p>
+        <p>Apple and Google process data under their own responsibility on app download. Apple Inc. (Cupertino, CA, USA); Google Ireland Limited (Dublin, Ireland).</p>
 
         <h3>4.4 Maps (OpenStreetMap / MapLibre)</h3>
         <p>Map content is delivered by the OpenStreetMap Foundation server in the United Kingdom (EU adequacy decision, June 2021). "Open in Google Maps" redirects to the Google Maps app — Google then processes your data under its own responsibility.</p>
@@ -784,79 +833,167 @@ td:first-child { font-weight: 600; color: #3A1F0A; }
 
   <!-- ═══════════════ NUTZUNGSBEDINGUNGEN ═══════════════ -->
   <div id="tab-nutzung" class="tab-panel">
-    <div class="card">
-      <h1>Nutzungsbedingungen</h1>
-      <p class="page-meta">Stand: Mai 2026</p>
+    <div class="lang-bar">
+      <div class="lang-switch">
+        <button id="nt-btn-de" class="active" onclick="setLang('nt','de')">Deutsch</button>
+        <button id="nt-btn-en" onclick="setLang('nt','en')">English</button>
+      </div>
+    </div>
 
-      <p>Diese Nutzungsbedingungen regeln die Nutzung der mobilen App „Sunchaser" (iOS und Android), die von Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main (im Folgenden „Anbieter") betrieben wird. Mit der Registrierung akzeptierst du diese Bedingungen vollständig und verbindlich.</p>
+    <!-- ─── DEUTSCH ─── -->
+    <div id="nt-de" class="lang-section active">
+      <div class="card">
+        <h1>Nutzungsbedingungen</h1>
+        <p class="page-meta">Stand: Mai 2026</p>
 
-      <h2>1. Geltungsbereich</h2>
-      <p>Diese Bedingungen gelten für alle Nutzer der Sunchaser-App. Maßgeblich ist die zum Zeitpunkt der Nutzung gültige Fassung. Abweichende Bedingungen werden nur anerkannt, wenn der Anbieter diesen ausdrücklich schriftlich zugestimmt hat.</p>
+        <p>Diese Nutzungsbedingungen regeln die Nutzung der mobilen App „Sunchaser" (iOS und Android), die von Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main (im Folgenden „Anbieter") betrieben wird. Mit der Registrierung akzeptierst du diese Bedingungen vollständig und verbindlich.</p>
 
-      <h2>2. Registrierung und Nutzerkonto</h2>
-      <p>Die Nutzung der App erfordert ein Nutzerkonto. Du verpflichtest dich, wahrheitsgemäße Angaben zu machen und diese aktuell zu halten. Du bist für die Geheimhaltung deiner Zugangsdaten verantwortlich.</p>
-      <ul>
-        <li>Du musst mindestens 16 Jahre alt sein.</li>
-        <li>Pro Person ist nur ein Konto zulässig.</li>
-        <li>Die Zugangsdaten sind nicht übertragbar.</li>
-        <li>Missbrauch deines Kontos meldest du unverzüglich an <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</li>
-      </ul>
+        <h2>1. Geltungsbereich</h2>
+        <p>Diese Bedingungen gelten für alle Nutzer der Sunchaser-App. Maßgeblich ist die zum Zeitpunkt der Nutzung gültige Fassung. Abweichende Bedingungen werden nur anerkannt, wenn der Anbieter diesen ausdrücklich schriftlich zugestimmt hat.</p>
 
-      <h2>3. Nutzungsrechte</h2>
-      <p>Der Anbieter räumt dir ein einfaches, nicht übertragbares, widerrufliches Recht zur privaten, nicht kommerziellen Nutzung der App ein. Alle Rechte an der App verbleiben beim Anbieter. Du darfst die App nicht kopieren, dekompilieren oder für kommerzielle Zwecke ohne schriftliche Genehmigung nutzen.</p>
+        <h2>2. Registrierung und Nutzerkonto</h2>
+        <p>Die Nutzung der App erfordert ein Nutzerkonto. Du verpflichtest dich, wahrheitsgemäße Angaben zu machen und diese aktuell zu halten. Du bist für die Geheimhaltung deiner Zugangsdaten verantwortlich.</p>
+        <ul>
+          <li>Du musst mindestens 16 Jahre alt sein.</li>
+          <li>Pro Person ist nur ein Konto zulässig.</li>
+          <li>Die Zugangsdaten sind nicht übertragbar.</li>
+          <li>Missbrauch deines Kontos meldest du unverzüglich an <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</li>
+        </ul>
 
-      <h2>4. Pflichten der Nutzer</h2>
-      <p>Du verpflichtest dich, die App nur im Einklang mit diesen Bedingungen und geltendem Recht zu nutzen. Insbesondere:</p>
-      <ul>
-        <li>Lade keine rechtswidrigen, beleidigenden, diskriminierenden oder irreführenden Inhalte hoch.</li>
-        <li>Beachte Urheber- und Persönlichkeitsrechte Dritter.</li>
-        <li>Umgehe keine technischen Schutzmaßnahmen der App.</li>
-        <li>Störe den Betrieb nicht durch Bots oder automatisierte Abfragen.</li>
-      </ul>
+        <h2>3. Nutzungsrechte</h2>
+        <p>Der Anbieter räumt dir ein einfaches, nicht übertragbares, widerrufliches Recht zur privaten, nicht kommerziellen Nutzung der App ein. Alle Rechte an der App verbleiben beim Anbieter. Du darfst die App nicht kopieren, dekompilieren oder für kommerzielle Zwecke ohne schriftliche Genehmigung nutzen.</p>
 
-      <h2>5. Nutzererzeugte Inhalte</h2>
-      <p>Du kannst Spots erstellen sowie Fotos, Sternebewertungen, Kommentare und Check-ins beisteuern (nachfolgend „Nutzerinhalte"). Dabei gilt:</p>
-      <ul>
-        <li>Du behältst alle Urheberrechte an deinen Inhalten.</li>
-        <li>Du räumst dem Anbieter eine kostenlose, weltweite, nicht-exklusive Lizenz ein, deine Inhalte zum Betrieb und zur Darstellung der App gegenüber anderen Nutzern zu verwenden.</li>
-        <li>Du garantierst, dass du zur Veröffentlichung dieser Inhalte berechtigt bist und keine Rechte Dritter verletzt werden.</li>
-        <li>Auf Fotos dürfen keine erkennbaren Personen ohne deren Einwilligung abgebildet sein.</li>
-        <li>Du stellst den Anbieter von allen Ansprüchen Dritter frei, die aus einer Verletzung dieser Garantie entstehen.</li>
-      </ul>
-      <p>Der Anbieter kann Nutzerinhalte entfernen, die gegen diese Bedingungen oder geltendes Recht verstoßen.</p>
+        <h2>4. Pflichten der Nutzer</h2>
+        <p>Du verpflichtest dich, die App nur im Einklang mit diesen Bedingungen und geltendem Recht zu nutzen. Insbesondere:</p>
+        <ul>
+          <li>Lade keine rechtswidrigen, beleidigenden, diskriminierenden oder irreführenden Inhalte hoch.</li>
+          <li>Beachte Urheber- und Persönlichkeitsrechte Dritter.</li>
+          <li>Umgehe keine technischen Schutzmaßnahmen der App.</li>
+          <li>Störe den Betrieb nicht durch Bots oder automatisierte Abfragen.</li>
+        </ul>
 
-      <h2>6. Verbotene Handlungen</h2>
-      <ul>
-        <li>Hochladen von Inhalten, die Gewalt, Hass, Diskriminierung oder illegale Aktivitäten fördern</li>
-        <li>Belästigung, Bedrohung oder Schädigung anderer Nutzer</li>
-        <li>Erstellung von Fake-Spots, gefälschten Bewertungen oder manipulierten Check-ins</li>
-        <li>Kommerzielle Werbung ohne ausdrückliche Genehmigung</li>
-        <li>Spam, Phishing oder Manipulation anderer Nutzer</li>
-        <li>Unbefugter Zugriff auf Systeme oder Daten des Anbieters</li>
-      </ul>
+        <h2>5. Nutzererzeugte Inhalte</h2>
+        <p>Du kannst Spots erstellen sowie Fotos, Sternebewertungen, Kommentare und Check-ins beisteuern (nachfolgend „Nutzerinhalte"). Dabei gilt:</p>
+        <ul>
+          <li>Du behältst alle Urheberrechte an deinen Inhalten.</li>
+          <li>Du räumst dem Anbieter eine kostenlose, weltweite, nicht-exklusive Lizenz ein, deine Inhalte zum Betrieb und zur Darstellung der App gegenüber anderen Nutzern zu verwenden.</li>
+          <li>Du garantierst, dass du zur Veröffentlichung dieser Inhalte berechtigt bist und keine Rechte Dritter verletzt werden.</li>
+          <li>Auf Fotos dürfen keine erkennbaren Personen ohne deren Einwilligung abgebildet sein.</li>
+          <li>Du stellst den Anbieter von allen Ansprüchen Dritter frei, die aus einer Verletzung dieser Garantie entstehen.</li>
+        </ul>
+        <p>Der Anbieter kann Nutzerinhalte entfernen, die gegen diese Bedingungen oder geltendes Recht verstoßen.</p>
 
-      <h2>7. Melde- und Moderationssystem</h2>
-      <p>Unangemessene Inhalte und Kommentare können über die in der App integrierte Meldefunktion gemeldet werden. Der Anbieter prüft Meldungen und ergreift angemessene Maßnahmen, einschließlich Entfernung von Inhalten oder Sperrung von Konten. Es besteht kein Anspruch auf eine bestimmte Reaktionszeit.</p>
+        <h2>6. Verbotene Handlungen</h2>
+        <ul>
+          <li>Hochladen von Inhalten, die Gewalt, Hass, Diskriminierung oder illegale Aktivitäten fördern</li>
+          <li>Belästigung, Bedrohung oder Schädigung anderer Nutzer</li>
+          <li>Erstellung von Fake-Spots, gefälschten Bewertungen oder manipulierten Check-ins</li>
+          <li>Kommerzielle Werbung ohne ausdrückliche Genehmigung</li>
+          <li>Spam, Phishing oder Manipulation anderer Nutzer</li>
+          <li>Unbefugter Zugriff auf Systeme oder Daten des Anbieters</li>
+        </ul>
 
-      <h2>8. Abzeichen-System</h2>
-      <p>Das Abzeichen-System (35 Abzeichen in 5 Kategorien) ist rein motivationsbasiert. Es besteht kein Anspruch auf Auszahlung, Gegenleistung oder rechtliche Wirkung. Es gibt keine Streak-Mechanik. Der Anbieter behält sich vor, das System jederzeit zu ändern oder einzustellen.</p>
+        <h2>7. Melde- und Moderationssystem</h2>
+        <p>Unangemessene Inhalte und Kommentare können über die in der App integrierte Meldefunktion gemeldet werden. Der Anbieter prüft Meldungen und ergreift angemessene Maßnahmen, einschließlich Entfernung von Inhalten oder Sperrung von Konten. Es besteht kein Anspruch auf eine bestimmte Reaktionszeit.</p>
 
-      <h2>9. Verfügbarkeit der App</h2>
-      <p>Der Anbieter strebt eine hohe Verfügbarkeit an, kann diese jedoch nicht garantieren. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen. Ein Anspruch auf eine bestimmte Verfügbarkeit besteht nicht.</p>
+        <h2>8. Abzeichen-System</h2>
+        <p>Das Abzeichen-System (35 Abzeichen in 5 Kategorien) ist rein motivationsbasiert. Es besteht kein Anspruch auf Auszahlung, Gegenleistung oder rechtliche Wirkung. Es gibt keine Streak-Mechanik. Der Anbieter behält sich vor, das System jederzeit zu ändern oder einzustellen.</p>
 
-      <h2>10. Haftung</h2>
-      <p>Der Anbieter haftet unbeschränkt für Vorsatz, grobe Fahrlässigkeit sowie für Schäden aus der Verletzung von Leben, Körper oder Gesundheit. Für leichte Fahrlässigkeit haftet der Anbieter nur bei Verletzung wesentlicher Vertragspflichten, begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Für Nutzerinhalte Dritter sowie externe Links (z. B. Google Maps) übernimmt der Anbieter keine Haftung.</p>
+        <h2>9. Verfügbarkeit der App</h2>
+        <p>Der Anbieter strebt eine hohe Verfügbarkeit an, kann diese jedoch nicht garantieren. Wartungsarbeiten, technische Störungen oder höhere Gewalt können zu Einschränkungen führen. Ein Anspruch auf eine bestimmte Verfügbarkeit besteht nicht.</p>
 
-      <h2>11. Konto-Sperrung und -Löschung</h2>
-      <p>Der Anbieter kann ein Nutzerkonto bei Verstößen vorübergehend sperren oder dauerhaft löschen. Der Nutzer kann sein Konto jederzeit selbst löschen: Profil → Menü → Delete account. Mit der Kontolöschung erlischt die Nutzungslizenz.</p>
+        <h2>10. Haftung</h2>
+        <p>Der Anbieter haftet unbeschränkt für Vorsatz, grobe Fahrlässigkeit sowie für Schäden aus der Verletzung von Leben, Körper oder Gesundheit. Für leichte Fahrlässigkeit haftet der Anbieter nur bei Verletzung wesentlicher Vertragspflichten, begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Für Nutzerinhalte Dritter sowie externe Links (z. B. Google Maps) übernimmt der Anbieter keine Haftung.</p>
 
-      <h2>12. Änderungen der Nutzungsbedingungen</h2>
-      <p>Der Anbieter behält sich vor, diese Bedingungen jederzeit zu ändern. Wesentliche Änderungen werden beim nächsten App-Start angekündigt. Die weitere Nutzung gilt als Zustimmung. Die aktuelle Fassung ist stets unter <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a> abrufbar.</p>
+        <h2>11. Konto-Sperrung und -Löschung</h2>
+        <p>Der Anbieter kann ein Nutzerkonto bei Verstößen vorübergehend sperren oder dauerhaft löschen. Der Nutzer kann sein Konto jederzeit selbst löschen: Profil → Menü → Delete account. Mit der Kontolöschung erlischt die Nutzungslizenz.</p>
 
-      <h2>13. Anwendbares Recht und Gerichtsstand</h2>
-      <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher gelten die zwingenden Schutzvorschriften des Landes ihres gewöhnlichen Aufenthalts. Gerichtsstand für Kaufleute und juristische Personen des öffentlichen Rechts ist Frankfurt am Main.</p>
+        <h2>12. Änderungen der Nutzungsbedingungen</h2>
+        <p>Der Anbieter behält sich vor, diese Bedingungen jederzeit zu ändern. Wesentliche Änderungen werden beim nächsten App-Start angekündigt. Die weitere Nutzung gilt als Zustimmung. Die aktuelle Fassung ist stets unter <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a> abrufbar.</p>
 
-      <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+        <h2>13. Anwendbares Recht und Gerichtsstand</h2>
+        <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Für Verbraucher gelten die zwingenden Schutzvorschriften des Landes ihres gewöhnlichen Aufenthalts. Gerichtsstand für Kaufleute und juristische Personen des öffentlichen Rechts ist Frankfurt am Main.</p>
+
+        <div class="footer-meta">Stand: Mai 2026 · Daniel Nakouzi · Sunchaser</div>
+      </div>
+    </div>
+
+    <!-- ─── ENGLISH ─── -->
+    <div id="nt-en" class="lang-section">
+      <div class="card">
+        <h1>Terms of Use</h1>
+        <p class="page-meta">Last update: May 2026</p>
+
+        <p>These Terms of Use govern the use of the mobile app "Sunchaser" (iOS and Android), operated by Daniel Nakouzi, Mörfelder Landstraße 88, 60598 Frankfurt am Main, Germany (hereinafter "Provider"). By registering, you fully and bindingly accept these terms.</p>
+
+        <h2>1. Scope</h2>
+        <p>These terms apply to all users of the Sunchaser app. The version in force at the time of use is authoritative. Deviating terms are only accepted if the Provider has expressly agreed to them in writing.</p>
+
+        <h2>2. Registration and user account</h2>
+        <p>Use of the app requires a user account. You agree to provide truthful information and keep it up to date. You are responsible for keeping your login credentials confidential.</p>
+        <ul>
+          <li>You must be at least 16 years old.</li>
+          <li>Only one account per person is permitted.</li>
+          <li>Login credentials are non-transferable.</li>
+          <li>Report any misuse of your account immediately to <a href="mailto:info.sunchaser@gmx.de">info.sunchaser@gmx.de</a>.</li>
+        </ul>
+
+        <h2>3. Licence to use</h2>
+        <p>The Provider grants you a simple, non-transferable, revocable right to use the app for private, non-commercial purposes. All rights to the app remain with the Provider. You may not copy, decompile or use the app for commercial purposes without written permission.</p>
+
+        <h2>4. User obligations</h2>
+        <p>You agree to use the app only in accordance with these terms and applicable law. In particular:</p>
+        <ul>
+          <li>Do not upload unlawful, offensive, discriminatory or misleading content.</li>
+          <li>Respect the copyright and personal rights of third parties.</li>
+          <li>Do not circumvent any technical protection measures of the app.</li>
+          <li>Do not disrupt operations through bots or automated queries.</li>
+        </ul>
+
+        <h2>5. User-generated content</h2>
+        <p>You can create spots and contribute photos, star ratings, comments and check-ins (hereinafter "user content"). The following applies:</p>
+        <ul>
+          <li>You retain all copyright in your content.</li>
+          <li>You grant the Provider a free, worldwide, non-exclusive licence to use your content to operate and display the app to other users.</li>
+          <li>You warrant that you are entitled to publish this content and that no third-party rights are infringed.</li>
+          <li>Photos must not show identifiable persons without their consent.</li>
+          <li>You indemnify the Provider against all third-party claims arising from a breach of this warranty.</li>
+        </ul>
+        <p>The Provider may remove user content that violates these terms or applicable law.</p>
+
+        <h2>6. Prohibited actions</h2>
+        <ul>
+          <li>Uploading content that promotes violence, hatred, discrimination or illegal activities</li>
+          <li>Harassment, threats or harm towards other users</li>
+          <li>Creating fake spots, fraudulent reviews or manipulated check-ins</li>
+          <li>Commercial advertising without express permission</li>
+          <li>Spam, phishing or manipulation of other users</li>
+          <li>Unauthorised access to the Provider's systems or data</li>
+        </ul>
+
+        <h2>7. Reporting and moderation</h2>
+        <p>Inappropriate content and comments can be reported via the in-app reporting function. The Provider reviews reports and takes appropriate action, including removal of content or suspension of accounts. No specific response time is guaranteed.</p>
+
+        <h2>8. Badge system</h2>
+        <p>The badge system (35 badges across 5 categories) is purely motivation-based. There is no entitlement to payment, consideration or legal effect. There is no streak mechanic. The Provider reserves the right to modify or discontinue the system at any time.</p>
+
+        <h2>9. App availability</h2>
+        <p>The Provider aims for high availability but cannot guarantee it. Maintenance, technical disruptions or force majeure may cause interruptions. No specific availability level is guaranteed.</p>
+
+        <h2>10. Liability</h2>
+        <p>The Provider is liable without limitation for intent, gross negligence and damages arising from injury to life, body or health. For slight negligence, the Provider is only liable for breach of material contractual obligations, limited to foreseeable, contract-typical damage. The Provider accepts no liability for third-party user content or external links (e.g. Google Maps).</p>
+
+        <h2>11. Account suspension and deletion</h2>
+        <p>The Provider may temporarily suspend or permanently delete a user account in the event of violations. Users may delete their own account at any time: Profile → Menu → Delete account. Deletion of the account terminates the usage licence.</p>
+
+        <h2>12. Changes to these terms</h2>
+        <p>The Provider reserves the right to amend these terms at any time. Material changes will be announced on the next app launch. Continued use constitutes acceptance. The current version is always available at <a href="https://danak1402.github.io/sunchaser-legal">danak1402.github.io/sunchaser-legal</a>.</p>
+
+        <h2>13. Governing law and jurisdiction</h2>
+        <p>German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. For consumers, the mandatory protective provisions of the country of their habitual residence apply. The place of jurisdiction for merchants and legal entities under public law is Frankfurt am Main, Germany.</p>
+
+        <div class="footer-meta">Last update: May 2026 · Daniel Nakouzi · Sunchaser</div>
+      </div>
     </div>
   </div>
 
@@ -871,19 +1008,21 @@ function showTab(tab) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function setLang(lang) {
-  document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-  document.getElementById('lang-' + lang).classList.add('active');
-  document.getElementById('lang-btn-' + lang).classList.add('active');
+function setLang(prefix, lang) {
+  var tabMap = { im: 'impressum', ds: 'datenschutz', nt: 'nutzung' };
+  var tab = document.getElementById('tab-' + tabMap[prefix]);
+  tab.querySelectorAll('.lang-section').forEach(function(el) { el.classList.remove('active'); });
+  tab.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(prefix + '-' + lang).classList.add('active');
+  document.getElementById(prefix + '-btn-' + lang).classList.add('active');
   document.documentElement.lang = lang;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 (function() {
-  const hash = window.location.hash.replace('#', '');
+  var hash = window.location.hash.replace('#', '');
   if (hash === 'datenschutz' || hash === 'nutzung' || hash === 'impressum') { showTab(hash); return; }
-  if (hash === 'en') { showTab('datenschutz'); setLang('en'); }
+  if (hash === 'en') { showTab('datenschutz'); setLang('ds', 'en'); }
 })();
 </script>
 </body>
